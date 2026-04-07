@@ -335,10 +335,80 @@ import Footer from '../../components/Footer.astro';
 
       </section>
 
-      <!-- ── SECTION 03 · HOW IT WAS BUILT ───────────────────────── -->
+      <!-- ── SECTION 03 · HOW OBJECTS ARE FILLED ─────────────────── -->
+      <section class="case-section svf">
+
+        <div class="svf-label">03 · HOW OBJECTS ARE FILLED</div>
+
+        <!-- Screenshot frame -->
+        <div class="svf-frame-wrap">
+          <div class="svf-frame">
+            <img
+              class="svf-frame-img"
+              src="/assets/cases/ure/VS-DataType-Variable-Light.png"
+              alt="Variable data type selection — Condition Builder"
+            />
+          </div>
+        </div>
+
+        <!-- Light/Dark toggle -->
+        <div class="svf-img-toggle">
+          <button class="svf-img-toggle-btn active" data-mode="light">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4"/>
+              <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+            </svg>
+            Light
+          </button>
+          <span class="svf-img-toggle-sep"> / </span>
+          <button class="svf-img-toggle-btn" data-mode="dark">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+            Dark
+          </button>
+        </div>
+
+        <!-- Problem + Solution -->
+        <div class="svf-summary">
+          <div class="svf-summary-block">
+            <div class="svf-summary-header svf-summary-header--problem">
+              <svg class="svf-summary-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="6" cy="6" r="5.5" stroke="currentColor"/>
+                <path d="M4 4L8 8M8 4L4 8" stroke="currentColor" stroke-linecap="round"/>
+              </svg>
+              <span class="svf-summary-label">PROBLEM</span>
+            </div>
+            <p class="svf-summary-body">Risk managers start from a business rules document — 100 or more rules written in plain language. Their job is to translate that into the system. The translation is the work, and the translation is where errors happen.</p>
+          </div>
+          <div class="svf-summary-block">
+            <div class="svf-summary-header svf-summary-header--solution">
+              <svg class="svf-summary-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="6" cy="6" r="5.5" stroke="currentColor"/>
+                <path d="M3.5 6L5.5 8L8.5 4.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="svf-summary-label">SOLUTION</span>
+            </div>
+            <p class="svf-summary-body">The Condition Builder turns each line of business logic into a structured expression. The interface handles the mapping. The risk manager never leaves their language.</p>
+          </div>
+        </div>
+
+        <!-- Expandable -->
+        <div class="svf-expandable">
+          <button class="svf-exp-toggle" aria-expanded="false">+ FULL REASONING</button>
+          <div class="svf-expand-body" hidden>
+            <p class="svf-expand-text">Risk managers don't start from a data schema. They start from a business rules document — a file that can have 100 or more rules, each written in plain language: "approve if credit score exceeds 700 and loan amount is under 50k." That's the simple case. Real rules reference historical data, cross-source flags, edge conditions built up over years of compliance work. Their job is to translate all of that into the system. The translation is the work, and the translation is where errors happen.</p>
+            <p class="svf-expand-text">The Condition Builder is where that translation happens. Each condition is an expression: Main Variable → Operator → Value. The risk manager isn't configuring a database field — they're writing a sentence the system can execute. Source narrows the domain, Category narrows the context, Variable completes the expression. The breadcrumb at the bottom — Application › Credit › BankruptcyFlag — is the finished equation before it's committed.</p>
+            <p class="svf-expand-text">This is what makes the product no-code. The risk manager works in the language they already use — conditions and outcomes — and the interface handles the mapping to the underlying data model.</p>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ── SECTION 04 · HOW IT WAS BUILT ───────────────────────── -->
       <section class="case-section s03">
 
-        <div class="s03-label">03 · HOW IT WAS BUILT</div>
+        <div class="s03-label">04 · HOW IT WAS BUILT</div>
 
         <!-- Tool Chain Component -->
         <div class="s03-toolchain">
@@ -433,10 +503,10 @@ import Footer from '../../components/Footer.astro';
 
       </section>
 
-      <!-- ── SECTION 04 · WHAT'S NEXT ─────────────────────────────── -->
+      <!-- ── SECTION 05 · WHAT'S NEXT ─────────────────────────────── -->
       <section class="case-section s04">
 
-        <div class="s04-label">04 · WHAT'S NEXT</div>
+        <div class="s04-label">05 · WHAT'S NEXT</div>
 
         <div class="s04-cards">
 
@@ -593,6 +663,35 @@ import Footer from '../../components/Footer.astro';
 </script>
 
 <script is:inline>
+  const svfBtns = document.querySelectorAll('.svf-img-toggle-btn');
+  const svfImg  = document.querySelector('.svf-frame-img');
+  const svfSrcs = {
+    light: '/assets/cases/ure/VS-DataType-Variable-Light.png',
+    dark:  '/assets/cases/ure/VS-DataTypeSelection-Dark.png',
+  };
+  svfBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      svfBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      svfImg.src = svfSrcs[btn.dataset.mode];
+    });
+  });
+</script>
+
+<script is:inline>
+  const svfExpToggle = document.querySelector('.svf-exp-toggle');
+  const svfExpBody   = document.querySelector('.svf-expand-body');
+  if (svfExpToggle && svfExpBody) {
+    svfExpToggle.addEventListener('click', () => {
+      const expanded = svfExpToggle.getAttribute('aria-expanded') === 'true';
+      svfExpToggle.setAttribute('aria-expanded', String(!expanded));
+      svfExpToggle.textContent = expanded ? '+ FULL REASONING' : '− FULL REASONING';
+      svfExpBody.hidden = expanded;
+    });
+  }
+</script>
+
+<script is:inline>
   const s03ExpToggle = document.querySelector('.s03-exp-toggle');
   const s03ExpBody   = document.querySelector('.s03-expand-body');
   if (s03ExpToggle && s03ExpBody) {
@@ -621,7 +720,7 @@ import Footer from '../../components/Footer.astro';
     grid-template-columns: 35% 65%;
     gap: 40px;
     align-items: start;
-    margin-bottom: 80px;
+    margin-bottom: 160px;
   }
 
   .hero-left {
@@ -1389,6 +1488,169 @@ import Footer from '../../components/Footer.astro';
     }
   }
 
+  /* ── Section SVF · How Objects Are Filled ──────────────────── */
+
+  .svf-label {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-label);
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+    margin-bottom: 32px;
+  }
+
+  .svf-frame-wrap {
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .svf-frame {
+    background: var(--color-bg-surface);
+    border: 1px solid var(--color-border-default);
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  .svf-frame-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+
+  .svf-img-toggle {
+    display: flex;
+    align-items: center;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 12px;
+  }
+
+  .svf-img-toggle-btn {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    font-weight: 400;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .svf-img-toggle-btn.active {
+    color: var(--color-text-primary);
+  }
+
+  .svf-img-toggle-sep {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.10em;
+    color: var(--color-text-muted);
+    user-select: none;
+    line-height: 1;
+  }
+
+  .svf-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 32px;
+  }
+
+  .svf-summary-block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .svf-summary-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .svf-summary-icon {
+    flex-shrink: 0;
+  }
+
+  .svf-summary-header--problem .svf-summary-icon,
+  .svf-summary-header--problem .svf-summary-label {
+    color: #E05A5A;
+  }
+
+  .svf-summary-header--solution .svf-summary-icon,
+  .svf-summary-header--solution .svf-summary-label {
+    color: var(--color-accent);
+  }
+
+  .svf-summary-label {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-label);
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .svf-summary-body {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-body);
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  .svf-expandable {
+    margin-top: 24px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .svf-exp-toggle {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-label);
+    font-weight: 400;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  .svf-expand-body {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .svf-expand-text {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-body);
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
   /* ── Section 03 · How It Was Built ─────────────────────────── */
 
   .s03-label {
@@ -1683,7 +1945,7 @@ import Footer from '../../components/Footer.astro';
 
   /* Section 04 is the last section */
   .s04 {
-    margin-bottom: 80px;
+    margin-bottom: 160px;
   }
 
   /* ── Section labels and text titles — primary color ─────────── */
@@ -1708,7 +1970,15 @@ import Footer from '../../components/Footer.astro';
     .hero-section {
       grid-template-columns: 1fr;
       gap: 0;
-      margin-bottom: 64px;
+      margin-bottom: 100px;
+    }
+
+    .case-section {
+      margin-bottom: 100px;
+    }
+
+    .s04 {
+      margin-bottom: 100px;
     }
 
     .hero-left {
