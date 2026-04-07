@@ -155,58 +155,68 @@ import Footer from '../../components/Footer.astro';
               src="/assets/cases/ure/canvas-before.png"
               alt="Canvas sidebar — before redesign"
             />
-            <div class="s01-frame-label">BEFORE</div>
-            <div class="s01-frame-sublabel">ORIGINAL · 2022</div>
+            <div class="s01-frame-caption s01-frame-caption--problem">
+              <div class="s01-frame-caption-header">
+                <svg class="s01-frame-caption-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="6" cy="6" r="5.5" stroke="currentColor"/>
+                  <path d="M4 4L8 8M8 4L4 8" stroke="currentColor" stroke-linecap="round"/>
+                </svg>
+                <span class="s01-frame-caption-title">Problem</span>
+              </div>
+              <p class="s01-frame-caption-body">Navigation without hierarchy. Flow management and system utilities shared one sidebar — no separation between active work and platform tools. A risk manager's core question on entry: 'am I in production or draft?' The original gave no clear answer.</p>
+            </div>
           </div>
 
           <!-- AFTER frame -->
           <div class="s01-frame s01-after-frame">
-            <div class="s01-img-toggle">
-              <button class="s01-img-toggle-btn active" data-mode="light">LIGHT</button>
-              <span class="s01-img-toggle-sep"> / </span>
-              <button class="s01-img-toggle-btn" data-mode="dark">DARK</button>
-            </div>
             <img
               class="s01-after-img"
               src="/assets/cases/ure/canvas-after-light.png"
               alt="Canvas sidebar — after redesign"
             />
-            <div class="s01-frame-label">AFTER</div>
+            <div class="s01-frame-caption s01-frame-caption--solution">
+              <div class="s01-frame-caption-header">
+                <svg class="s01-frame-caption-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="6" cy="6" r="5.5" stroke="currentColor"/>
+                  <path d="M3.5 6L5.5 8L8.5 4.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="s01-frame-caption-title">Solution</span>
+              </div>
+              <p class="s01-frame-caption-body">Two-zone sidebar — flow states at top, platform tools anchored at the bottom. The safety check answered before the risk manager touches a node.</p>
+              <div class="s01-img-toggle">
+                <button class="s01-img-toggle-btn active" data-mode="light">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="4"/>
+                    <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+                  </svg>
+                  Light
+                </button>
+                <span class="s01-img-toggle-sep"> / </span>
+                <button class="s01-img-toggle-btn" data-mode="dark">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                  </svg>
+                  Dark
+                </button>
+              </div>
+            </div>
           </div>
 
         </div>
 
-        <!-- Summary -->
-        <div class="s01-summary">
-          <div class="s01-summary-block">
-            <span class="s01-summary-label">PROBLEM</span>
-            <p class="s01-summary-body">Navigation without hierarchy. Flow management and system utilities shared one sidebar — no separation between active work and platform tools. A risk manager's core question on entry: 'am I in production or draft?' The original gave no clear answer.</p>
-          </div>
-          <div class="s01-summary-block">
-            <span class="s01-summary-label">SOLUTION</span>
-            <p class="s01-summary-body">Two-zone sidebar — flow states at top, platform tools anchored at the bottom. The safety check answered before the risk manager touches a node.</p>
-          </div>
-        </div>
+
+        <!-- Summary text -->
+        <div class="s01-expand-subhead" style="max-width:640px;margin:32px auto 0;">THE OUTCOME</div>
+        <p class="s01-summary-text" style="margin-top:12px;">The original sidebar mixed flow management and platform utilities in one undifferentiated list — same visual weight, no hierarchy. You had to scan everything to find anything. The redesign separates the two explicitly: active flows at the top, platform tools anchored at the bottom. The sidebar now reads in one pass.</p>
 
         <!-- Expandable -->
         <div class="s01-expandable">
           <button class="s01-exp-toggle" aria-expanded="false">+ FULL REASONING</button>
           <div class="s01-expand-body" hidden>
-            <p class="s01-expand-text">The original sidebar mixed two fundamentally different types of information in one undifferentiated list.</p>
-            <p class="s01-expand-text">Flow states — which flow is live, which is a draft, which is currently active — answer the question a risk manager asks before touching anything: am I editing the live system or a draft? This is not a navigational question. It's a safety check. Getting it wrong has compliance consequences.</p>
-            <p class="s01-expand-text">Platform tools — Data Dictionary, Changes History, Reports — are reference utilities. They answer a different question, asked at different moments, consulted occasionally rather than constantly.</p>
-            <p class="s01-expand-text">In the original, both sat in the same column with the same visual weight. No hierarchy, no separation. Every time a risk manager opened the canvas, they had to scan the entire sidebar to find their orientation. For a user whose primary anxiety before editing is draft vs. production status, that's the wrong cognitive environment.</p>
-            <div class="s01-expand-subhead">THE PROPOSED FIX — AND WHY IT GOT BLOCKED</div>
-            <p class="s01-expand-text">The most direct solution was to move platform utilities into the header. Global tools that affect the whole platform belong in global navigation, not in a workspace-specific sidebar. I prepared several examples showing this separation: header for platform-wide utilities, sidebar for workspace context.</p>
-            <p class="s01-expand-text">The client refused. Their reasoning: the other products in the portfolio used the header for notifications — Follow-ups, Comments, Alerts, system-wide communication features. They wanted header treatment to be consistent across all eight products.</p>
-            <p class="s01-expand-text">The consistency rationale applied to products that actually used the header for communication features. Underwriting had none of those planned. But the client held the position, and we couldn't reach agreement.</p>
+            <div class="s01-expand-subhead">THE PROPOSED FIX AND BLOCKERS</div>
+            <p class="s01-expand-text">The most direct fix was moving platform utilities into the header — global tools belong in global navigation. The client refused because other products in the portfolio used the header for system-wide notifications (Follow-ups, Comments, Alerts), and they wanted consistency across all eight products. But Underwriting had none of those features planned even in post-MVP state, we couldn't reach agreement.</p>
             <div class="s01-expand-subhead">THE REDESIGN</div>
-            <p class="s01-expand-text">Rather than leaving the sidebar as-is or fighting a blocked path, the redesign introduces two explicit zones within the sidebar itself.</p>
-            <p class="s01-expand-text">Flow states sit at the top — Production Flow clearly labeled, Draft Flows below it, the active flow tree nested underneath. The risk manager's first question is answered at the top of the panel before they look at anything else.</p>
-            <p class="s01-expand-text">Platform tools are anchored to the bottom under a distinct PLATFORM label. This follows an established pattern in complex SaaS tools: Figma, Linear, and VS Code all separate primary working context from secondary utilities this way. The pattern exists because these are genuinely different modes of use — active work versus occasional reference — and visual separation reduces the cognitive load of distinguishing them.</p>
-            <p class="s01-expand-text">Bottom placement keeps platform tools accessible without surfacing them as competing priorities. A risk manager working in a flow doesn't need Data Dictionary in their visual field. When they do need it, it's there — labeled, findable, at the bottom of the same panel.</p>
-            <div class="s01-expand-subhead">THE OUTCOME</div>
-            <p class="s01-expand-text">A risk manager opening the canvas sees their flow states immediately. The question 'am I editing the live system?' is answered at a glance, before they touch a node.</p>
+            <p class="s01-expand-text">Rather than fight a blocked path, the redesign introduces two explicit zones within the sidebar itself. Flow states sit at the top — Production Flow, Draft Flows, the active flow tree. Platform tools anchor to the bottom under a PLATFORM label. Figma, Linear, and VS Code all use this separation for the same reason: active work and occasional reference are different modes of use. Keeping them visually distinct removes one more thing the user has to figure out before they start working.</p>
           </div>
         </div>
 
@@ -225,8 +235,8 @@ import Footer from '../../components/Footer.astro';
               <img src="/assets/cases/ure/claude.png" alt="Claude" class="s03-tool-logo" />
               <ul class="s03-tool-list">
                 <li>Planning</li>
+                <li>Specs</li>
                 <li>Audit</li>
-                <li>Spec work</li>
               </ul>
             </div>
           </div>
@@ -237,8 +247,9 @@ import Footer from '../../components/Footer.astro';
             <div class="s03-tool-card-inner">
               <img src="/assets/cases/ure/codex.png" alt="Codex" class="s03-tool-logo" />
               <ul class="s03-tool-list">
-                <li>Component generation</li>
                 <li>Execution</li>
+                <li>Fixes</li>
+                <li>Storybook</li>
               </ul>
             </div>
           </div>
@@ -249,8 +260,9 @@ import Footer from '../../components/Footer.astro';
             <div class="s03-tool-card-inner">
               <img src="/assets/cases/ure/figma.png" alt="Figma" class="s03-tool-logo" />
               <ul class="s03-tool-list">
-                <li>Design / implementation sync</li>
                 <li>Figma MCP</li>
+                <li>Manual Fixes</li>
+                <li>Review</li>
               </ul>
             </div>
           </div>
@@ -261,7 +273,7 @@ import Footer from '../../components/Footer.astro';
         <div class="s03-summary">
           <div class="s03-summary-block">
             <span class="s03-summary-label">PROBLEM</span>
-            <p class="s03-summary-body">Token architecture, component library, full flows in light and dark — a process that normally takes weeks. Built solo, in days, using Claude, Claude Code, and Figma MCP.</p>
+            <p class="s03-summary-body">Token architecture, component library, full flows in light and dark — a process that normally takes weeks. Built solo, in days, using Claude, Codex, and Figma MCP.</p>
           </div>
           <div class="s03-summary-block">
             <span class="s03-summary-label">RESULT</span>
@@ -278,32 +290,32 @@ import Footer from '../../components/Footer.astro';
             <p class="s03-expand-text">The workflow was divided by what each tool does best. Claude handled planning, audit, and spec work — the analytical layer where structured thinking matters more than execution speed. Claude Code and Codex handled component generation and execution. Figma MCP kept design and implementation in sync throughout, eliminating the round-trips that normally fragment this kind of work.</p>
             <p class="s03-expand-text">Working this way created something genuinely hard to maintain in pure execution mode: critical distance. When the model handles the mechanical work, there's room to step back and audit decisions rather than just make them.</p>
 
-            <div class="s03-expand-subhead">Three things I'd do differently</div>
-
-            <!-- Reflection Cards -->
-            <div class="s03-reflect-cards">
-
-              <div class="s03-reflect-card">
-                <span class="s03-reflect-index">01</span>
-                <h3 class="s03-reflect-title">Plan the system before building it</h3>
-                <p class="s03-reflect-body">I underinvested in design system structure upfront. The result was over 116 tokens that became unusable — more time spent fixing than building. The right ratio is closer to 80% planning, 20% execution. This applies to AI-assisted work more than traditional work: the model executes fast, which means structural mistakes compound fast.</p>
-              </div>
-
-              <div class="s03-reflect-card">
-                <span class="s03-reflect-index">02</span>
-                <h3 class="s03-reflect-title">Match the model to the task</h3>
-                <p class="s03-reflect-body">I used Opus for tasks Sonnet handles equally well, which burned through the weekly token budget in three days. Choosing which model to use for which task is an operational decision that directly affects output. Treating it as a footnote is how you run out of credits midway through a complex system.</p>
-              </div>
-
-              <div class="s03-reflect-card">
-                <span class="s03-reflect-index">03</span>
-                <h3 class="s03-reflect-title">Structure the workflow before starting</h3>
-                <p class="s03-reflect-body">I had the right tools — Claude, Claude Code, Figma MCP — but used them without a defined sequence on the first run. The knowledge is now structured. I know how to sequence the work before it begins, not reconstruct the workflow while it's in progress.</p>
-              </div>
-
-            </div>
-
           </div>
+        </div>
+
+        <div class="s03-expand-subhead">Three things I'd do differently</div>
+
+        <!-- Reflection Cards -->
+        <div class="s03-reflect-cards">
+
+          <div class="s03-reflect-card">
+            <span class="s03-reflect-index">01</span>
+            <h3 class="s03-reflect-title">Plan the system before building it</h3>
+            <p class="s03-reflect-body">I underinvested in design system structure upfront. The result was over 116 tokens that became unusable — more time spent fixing than building. The right ratio is closer to 80% planning, 20% execution. This applies to AI-assisted work more than traditional work: the model executes fast, which means structural mistakes compound fast.</p>
+          </div>
+
+          <div class="s03-reflect-card">
+            <span class="s03-reflect-index">02</span>
+            <h3 class="s03-reflect-title">Match the model to the task</h3>
+            <p class="s03-reflect-body">I used Opus for tasks Sonnet handles equally well, which burned through the weekly token budget in three days. Choosing which model to use for which task is an operational decision that directly affects output. Treating it as a footnote is how you run out of credits midway through a complex system.</p>
+          </div>
+
+          <div class="s03-reflect-card">
+            <span class="s03-reflect-index">03</span>
+            <h3 class="s03-reflect-title">Structure the workflow before starting</h3>
+            <p class="s03-reflect-body">I had the right tools — Claude, Claude Code, Figma MCP — but used them without a defined sequence on the first run. The knowledge is now structured. I know how to sequence the work before it begins, not reconstruct the workflow while it's in progress.</p>
+          </div>
+
         </div>
 
       </section>
@@ -767,7 +779,6 @@ import Footer from '../../components/Footer.astro';
     border: 1px solid var(--color-border-default);
     border-radius: 12px;
     padding: 16px;
-    position: relative;
   }
 
   .s01-frame-img,
@@ -775,38 +786,62 @@ import Footer from '../../components/Footer.astro';
     display: block;
     width: 100%;
     height: auto;
+    border-radius: 4px; /* 12px outer - 8px padding = ~4px concentric */
   }
 
-  .s01-frame-label {
+  /* Caption block inside each frame */
+  .s01-frame-caption {
+    margin-top: 14px;
+  }
+
+  .s01-frame-caption-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+
+  .s01-frame-caption-icon {
+    flex-shrink: 0;
+  }
+
+  .s01-frame-caption-title {
     font-family: var(--font-mono);
     font-size: var(--font-size-label);
     font-weight: 400;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--color-text-muted);
-    margin-top: 8px;
   }
 
-  .s01-frame-sublabel {
+  .s01-frame-caption--problem .s01-frame-caption-icon,
+  .s01-frame-caption--problem .s01-frame-caption-title {
+    color: #E05A5A;
+  }
+
+  .s01-frame-caption--solution .s01-frame-caption-icon,
+  .s01-frame-caption--solution .s01-frame-caption-title {
+    color: var(--color-accent);
+  }
+
+  .s01-frame-caption-body {
     font-family: var(--font-mono);
-    font-size: var(--font-size-label);
+    font-size: 0.6875rem; /* 11px */
     font-weight: 400;
-    letter-spacing: 0;
-    color: var(--color-text-faint);
+    letter-spacing: var(--letter-spacing-body);
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin: 0;
   }
 
   .s01-img-toggle {
-    position: absolute;
-    top: 16px;
-    right: 16px;
     display: flex;
     align-items: center;
-    z-index: 1;
+    margin-top: 10px;
   }
 
   .s01-img-toggle-btn {
     font-family: var(--font-mono);
-    font-size: var(--font-size-label);
+    font-size: 0.625rem; /* 10px */
     font-weight: 400;
     letter-spacing: 0.10em;
     text-transform: uppercase;
@@ -816,6 +851,9 @@ import Footer from '../../components/Footer.astro';
     padding: 0;
     cursor: pointer;
     line-height: 1;
+    display: flex;
+    align-items: center;
+    gap: 5px;
   }
 
   .s01-img-toggle-btn.active {
@@ -824,45 +862,23 @@ import Footer from '../../components/Footer.astro';
 
   .s01-img-toggle-sep {
     font-family: var(--font-mono);
-    font-size: var(--font-size-label);
+    font-size: 0.625rem; /* 10px */
+    letter-spacing: 0.10em;
     color: var(--color-text-muted);
     user-select: none;
     line-height: 1;
   }
 
-  .s01-summary {
-    margin-top: 32px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    max-width: 640px;
-    margin-left: auto;
-    margin-right: auto;
-  }
 
-  .s01-summary-block {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .s01-summary-label {
-    font-family: var(--font-mono);
-    font-size: var(--font-size-label);
-    font-weight: 400;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--color-text-muted);
-  }
-
-  .s01-summary-body {
+  .s01-summary-text {
     font-family: var(--font-mono);
     font-size: 0.8125rem; /* 13px */
     font-weight: 400;
     letter-spacing: var(--letter-spacing-body);
     line-height: 1.7;
     color: var(--color-text-secondary);
-    margin: 0;
+    margin: 32px auto 0;
+    max-width: 640px;
   }
 
   .s01-expandable {
@@ -951,12 +967,12 @@ import Footer from '../../components/Footer.astro';
   .s03-tool-card-inner {
     display: flex;
     gap: 16px;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .s03-tool-logo {
-    width: 48px;
-    height: 48px;
+    width: 64px;
+    height: 64px;
     flex-shrink: 0;
     object-fit: contain;
   }
@@ -970,7 +986,14 @@ import Footer from '../../components/Footer.astro';
     font-weight: 400;
     letter-spacing: var(--letter-spacing-body);
     line-height: 1.7;
-    color: var(--color-text-secondary);
+    color: var(--color-text-primary);
+  }
+
+  .s03-tool-list li::before {
+    content: '+';
+    color: var(--color-text-primary);
+    margin-right: 6px;
+    font-size: 0.75rem;
   }
 
   .s03-tool-sep {
@@ -1064,7 +1087,7 @@ import Footer from '../../components/Footer.astro';
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--color-text-muted);
-    margin-top: 32px;
+    margin-top: 40px;
     margin-bottom: 24px;
   }
 
