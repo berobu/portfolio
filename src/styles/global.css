@@ -18,8 +18,8 @@
 
   /* Text */
   --color-text-primary:   #F2EDE4;
-  --color-text-secondary: #5C5850;
-  --color-text-muted:     #3D3A34;
+  --color-text-secondary: #8C877E;
+  --color-text-muted:     #6B6560;
   --color-text-faint:     #2E2C26;
   --color-accent:         #D4FF3E;
 
@@ -31,10 +31,10 @@
   --font-size-display: 3.75rem;                      /* 60px */
   --font-size-title:   clamp(2rem, 3.5vw, 2.5rem);  /* 32–40px */
   --font-size-label:   0.625rem;                     /* 10px */
-  --font-size-body:    0.6875rem;                    /* 11px */
+  --font-size-body:    0.8125rem;                    /* 13px */
   --font-size-meta:    0.625rem;                     /* 10px */
   --font-size-tag:     0.5625rem;                    /* 9px  */
-  --font-size-nav:     0.6875rem;                    /* 11px */
+  --font-size-nav:     0.8125rem;                    /* 13px */
 
   /* Letter spacing */
   --letter-spacing-display: -0.03em; /* confirmed */

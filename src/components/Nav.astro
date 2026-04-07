@@ -1,9 +1,18 @@
 ---
 // Nav — SPEC-content-v1 + SPEC-design-v1
+interface Props {
+  showBack?: boolean;
+}
+const { showBack = false } = Astro.props;
 ---
 
 <header class="nav">
-  <span class="nav-name">Igor Bielov</span>
+  <div class="nav-left">
+    <a href="/" class="nav-name">Igor Bielov</a>
+    {showBack && (
+      <a href="/" class="nav-link">← Work</a>
+    )}
+  </div>
   <nav class="nav-links">
     <a href="#work" class="nav-link">Work</a>
     <a href="/cv.pdf" class="nav-link" target="_blank" rel="noopener noreferrer">CV&nbsp;↗</a>
@@ -20,13 +29,25 @@
     justify-content: space-between;
   }
 
+  .nav-left {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
   .nav-name {
     font-family: var(--font-mono);
     font-size: var(--font-size-nav);
     font-weight: 400;
     letter-spacing: var(--letter-spacing-nav);
-    color: var(--color-text-muted);
+    color: var(--color-text-secondary);
+    text-decoration: none;
     text-transform: uppercase;
+    transition: color 150ms ease;
+  }
+
+  .nav-name:hover {
+    color: var(--color-accent);
   }
 
   .nav-links {
@@ -40,9 +61,14 @@
     font-size: var(--font-size-nav);
     font-weight: 400;
     letter-spacing: var(--letter-spacing-nav);
-    color: var(--color-text-muted);
+    color: var(--color-text-secondary);
     text-decoration: none;
     text-transform: uppercase;
+    transition: color 150ms ease;
+  }
+
+  .nav-link:hover {
+    color: var(--color-accent);
   }
 
   @media (max-width: 640px) {
