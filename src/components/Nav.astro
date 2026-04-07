@@ -1,0 +1,53 @@
+---
+// Nav — SPEC-content-v1 + SPEC-design-v1
+---
+
+<header class="nav">
+  <span class="nav-name">Igor Bielov</span>
+  <nav class="nav-links">
+    <a href="#work" class="nav-link">Work</a>
+    <a href="/cv.pdf" class="nav-link" target="_blank" rel="noopener noreferrer">CV&nbsp;↗</a>
+  </nav>
+</header>
+
+<style>
+  .nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-name {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-nav);
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-nav);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .nav-link {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-nav);
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-nav);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 640px) {
+    .nav {
+      padding: 24px 20px;
+    }
+  }
+</style>

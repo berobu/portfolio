@@ -1,0 +1,841 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+
+export function getStaticPaths() {
+  return [
+    { params: { slug: 'underwriting-rule-engine' } },
+  ];
+}
+---
+
+<Layout title="Underwriting Rule Engine">
+  <Nav />
+
+  <div class="case-page">
+
+    <!-- ── LEFT PANEL ──────────────────────────────────────────── -->
+    <aside class="case-panel">
+
+      <div class="panel-title-block">
+        <h1 class="panel-title">Underwriting Rule Engine</h1>
+        <p class="panel-desc">No-code platform for risk managers to build and manage loan approval logic without engineering.</p>
+      </div>
+
+      <div class="meta-grid">
+        <div class="meta-item">
+          <p class="meta-label">DOMAIN</p>
+          <p class="meta-value">Fintech · B2B SaaS</p>
+        </div>
+        <div class="meta-item">
+          <p class="meta-label">STAGE</p>
+          <p class="meta-value">0→1</p>
+        </div>
+        <div class="meta-item">
+          <p class="meta-label">ROLE</p>
+          <p class="meta-value">Solo Designer</p>
+        </div>
+        <div class="meta-item">
+          <p class="meta-label">SCOPE</p>
+          <p class="meta-value">Full system — canvas, objects, design system</p>
+        </div>
+      </div>
+
+      <div class="meta-block">
+        <p class="meta-label">THE PROBLEM</p>
+        <p class="meta-body">Risk managers define the logic that approves, rejects, or flags loan applications. A wrong rule that reaches production isn't a UX problem — it's a compliance event. The product needed to give them control without requiring engineering to make a change.</p>
+      </div>
+
+      <div class="meta-block">
+        <p class="meta-label">THE USER</p>
+        <p class="meta-body">Finance and compliance professionals. Think in conditions and outcomes. Need certainty before they act. Cannot afford mistakes in production.</p>
+      </div>
+
+    </aside>
+
+    <!-- ── RIGHT CONTENT ───────────────────────────────────────── -->
+    <main class="case-content">
+
+      <!-- ── HERO ──────────────────────────────────────────────── -->
+      <section class="section-hero">
+        <div class="hero-frame">
+          <div class="toggle" data-toggle>
+            <button class="toggle-btn active" data-mode="light">LIGHT</button>
+            <span class="toggle-sep">/</span>
+            <button class="toggle-btn" data-mode="dark">DARK</button>
+          </div>
+          <img
+            src="/assets/cases/ure/Canvas-Added%20DT.png"
+            alt="Canvas with Decision Table node — redesigned"
+            class="hero-img screenshot-img"
+            data-light="/assets/cases/ure/Canvas-Added%20DT.png"
+            data-dark="/assets/cases/ure/Canvas-Added%20DT-1.png"
+          />
+        </div>
+      </section>
+
+      <!-- ── 00 · WHAT WASN'T WORKING ──────────────────────────── -->
+      <section class="case-section fade-in-el">
+        <p class="section-num">00 · WHAT WASN'T WORKING</p>
+
+        <div class="diag-cards">
+          <div class="diag-card">
+            <p class="diag-num">01</p>
+            <p class="diag-heading">Navigation without hierarchy</p>
+            <p class="diag-body">Flow management and platform utilities shared one undifferentiated sidebar list.</p>
+            <p class="diag-link">→ Canvas redesign</p>
+          </div>
+          <div class="diag-card">
+            <p class="diag-num">02</p>
+            <p class="diag-heading">No validation before committing</p>
+            <p class="diag-body">No way to test a rule before it reached the live flow.</p>
+            <p class="diag-link">→ Decision Table redesign</p>
+          </div>
+          <div class="diag-card">
+            <p class="diag-num">03</p>
+            <p class="diag-heading">Wrong visual language</p>
+            <p class="diag-body">MUI base with windows-like styling — wrong cognitive context for precision work.</p>
+            <p class="diag-link">→ Full rebuild</p>
+          </div>
+        </div>
+
+        <div class="summary-blocks">
+          <div class="summary-block">
+            <p class="summary-label">PROBLEM</p>
+            <p class="summary-text">The product was built 0→1 under real constraints. After shipping, I audited what we'd built. Three structural problems worth fixing.</p>
+          </div>
+        </div>
+
+        <p class="closing-copy">The first problem drove the Canvas redesign. The second drove the Decision Table redesign. The third — a visual language strictly dictated by the client — is what the full rebuild addressed.</p>
+
+        <details class="reasoning">
+          <summary class="reasoning-toggle">FULL REASONING</summary>
+          <div class="reasoning-body">
+            <p>The original UI was built on an MUI base with explicit client requirements: the visual direction was windows-like — heavy icons, colored action bars, dense component styling. For a precision tool used by finance professionals making high-stakes decisions, that visual language creates the wrong cognitive context. It signals a generic enterprise dashboard, not a system built for focused, careful work.</p>
+            <p>The redesign used Linear as the reference point. Linear is a complex system used by people who need to move fast and trust what they're looking at. Its visual language — minimal chrome, clear hierarchy, nothing competing with the content — is what makes it feel like a precision tool rather than a form-filling interface. That's the direction the redesign follows: strip everything that isn't earning its visual weight, and let the structure of the information do the work.</p>
+            <p>The result is a dramatic visual shift from the original. That shift wasn't arbitrary — it was a deliberate correction of a UI language that was working against the user.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ── 01 · CANVAS ────────────────────────────────────────── -->
+      <section class="case-section fade-in-el">
+        <p class="section-num">01 · CANVAS</p>
+
+        <div class="before-after">
+          <div class="ba-col">
+            <div class="screenshot-frame">
+              <img
+                src="/assets/cases/ure/canvas-old.png"
+                alt="Canvas — original shipped version, 2022"
+                class="screenshot-img"
+              />
+            </div>
+            <p class="ba-label">BEFORE · 2022</p>
+          </div>
+          <div class="ba-col">
+            <div class="screenshot-frame screenshot-frame--has-toggle">
+              <div class="toggle" data-toggle>
+                <button class="toggle-btn active" data-mode="light">LIGHT</button>
+                <span class="toggle-sep">/</span>
+                <button class="toggle-btn" data-mode="dark">DARK</button>
+              </div>
+              <img
+                src="/assets/cases/ure/Canvas-Added%20DT.png"
+                alt="Canvas — redesigned"
+                class="screenshot-img"
+                data-light="/assets/cases/ure/Canvas-Added%20DT.png"
+                data-dark="/assets/cases/ure/Canvas-Added%20DT-1.png"
+              />
+            </div>
+            <p class="ba-label">AFTER</p>
+          </div>
+        </div>
+
+        <div class="summary-blocks">
+          <div class="summary-block">
+            <p class="summary-label">PROBLEM</p>
+            <p class="summary-text">Navigation without hierarchy. Flow management and system utilities shared one sidebar — no separation between active work and platform tools. A risk manager's core question on entry: "am I in production or draft?" The original gave no clear answer.</p>
+          </div>
+          <div class="summary-block">
+            <p class="summary-label">SOLUTION</p>
+            <p class="summary-text">Two-zone sidebar — flow states at top, platform tools anchored at the bottom. The safety check answered before the risk manager touches a node.</p>
+          </div>
+        </div>
+
+        <details class="reasoning">
+          <summary class="reasoning-toggle">FULL REASONING</summary>
+          <div class="reasoning-body">
+            <p>The original sidebar mixed two fundamentally different types of information in one undifferentiated list.</p>
+            <p>Flow states — which flow is live, which is a draft, which is currently active — answer the question a risk manager asks before touching anything: <em>am I editing the live system or a draft?</em> This is not a navigational question. It's a safety check. Getting it wrong has compliance consequences.</p>
+            <p>Platform tools — Data Dictionary, Changes History, Reports — are reference utilities. They answer a different question, asked at different moments, consulted occasionally rather than constantly.</p>
+            <p>In the original, both sat in the same column with the same visual weight. No hierarchy, no separation. Every time a risk manager opened the canvas, they had to scan the entire sidebar to find their orientation. For a user whose primary anxiety before editing is draft vs. production status, that's the wrong cognitive environment.</p>
+            <h4 class="reasoning-heading">The proposed fix — and why it got blocked</h4>
+            <p>The most direct solution was to move platform utilities into the header. Global tools that affect the whole platform belong in global navigation, not in a workspace-specific sidebar. I prepared several examples showing this separation: header for platform-wide utilities, sidebar for workspace context.</p>
+            <p>The client refused. Their reasoning: the other products in the portfolio used the header for notifications — Follow-ups, Comments, Alerts, system-wide communication features. They wanted header treatment to be consistent across all eight products.</p>
+            <p>The consistency rationale didn't apply to Underwriting — the product had none of those communication features planned. But the client held the position, and we couldn't reach agreement.</p>
+            <h4 class="reasoning-heading">The redesign</h4>
+            <p>Rather than leaving the sidebar as-is or fighting a blocked path, the redesign introduces two explicit zones within the sidebar itself.</p>
+            <p>Flow states sit at the top — Production Flow clearly labeled, Draft Flows below it, the active flow tree nested underneath. The risk manager's first question is answered at the top of the panel before they look at anything else.</p>
+            <p>Platform tools are anchored to the bottom under a distinct PLATFORM label. This follows an established pattern in complex SaaS tools: Figma, Linear, and VS Code all separate primary working context from secondary utilities this way. The pattern exists because these are genuinely different modes of use — active work versus occasional reference — and visual separation reduces the cognitive load of distinguishing them.</p>
+            <p>Bottom placement keeps platform tools accessible without surfacing them as competing priorities. A risk manager working in a flow doesn't need Data Dictionary in their visual field. When they do need it, it's there — labeled, findable, at the bottom of the same panel.</p>
+            <h4 class="reasoning-heading">The outcome</h4>
+            <p>A risk manager opening the canvas sees their flow states immediately. The question "am I editing the live system?" is answered at a glance, before they touch a node.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ── 02 · DECISION TABLE ────────────────────────────────── -->
+      <section class="case-section fade-in-el">
+        <p class="section-num">02 · DECISION TABLE</p>
+
+        <div class="before-after">
+          <div class="ba-col">
+            <div class="screenshot-frame screenshot-frame--placeholder">
+              <span class="placeholder-label">DT · Original · 2022</span>
+            </div>
+            <p class="ba-label">BEFORE · 2022</p>
+          </div>
+          <div class="ba-col">
+            <div class="screenshot-frame screenshot-frame--has-toggle">
+              <div class="toggle" data-toggle>
+                <button class="toggle-btn active" data-mode="light">LIGHT</button>
+                <span class="toggle-sep">/</span>
+                <button class="toggle-btn" data-mode="dark">DARK</button>
+              </div>
+              <img
+                src="/assets/cases/ure/DT-Filled.png"
+                alt="Decision Table — redesigned"
+                class="screenshot-img"
+                data-light="/assets/cases/ure/DT-Filled.png"
+                data-dark="/assets/cases/ure/DT-Filled-1.png"
+              />
+            </div>
+            <p class="ba-label">AFTER</p>
+          </div>
+        </div>
+
+        <div class="summary-blocks">
+          <div class="summary-block">
+            <p class="summary-label">PROBLEM</p>
+            <p class="summary-text">No way to validate a rule before it was live. The original asked the risk manager to hold correctness in their head. A wrong rule that reaches production is a compliance risk, not a UX inconvenience.</p>
+          </div>
+          <div class="summary-block">
+            <p class="summary-label">SOLUTION</p>
+            <p class="summary-text">Test Node, Rule Summary, Health Status — three changes that move the cognitive load off the user and into the interface.</p>
+          </div>
+        </div>
+
+        <details class="reasoning">
+          <summary class="reasoning-toggle">FULL REASONING</summary>
+          <div class="reasoning-body">
+            <p>The original Decision Table had no validation step.</p>
+            <p>You configured your conditions — CreditScore ≥ 700, LoanAmount ≤ 50,000 — assigned your outcomes, and hit Save Node. The rule was committed to the flow. If the logic was wrong, you found out when it mattered: in production, on a real loan application.</p>
+            <p>For a risk manager, this isn't a missing feature. It's a missing trust mechanism. The entire value of the system depends on rules being correct before they reach production. A Save button with no validation step asks the user to carry the correctness check in their head. In a domain where a misconfigured rule can mean incorrectly approved or rejected applications — and regulatory exposure — that cognitive load belongs in the interface, not on the user.</p>
+            <p>A second problem: the original gave no plain-language summary of what a rule actually said. You read conditions from table cells and mentally assembled what the combined logic would do. There was no reflection, no translation. A risk manager finishing a complex rule had to reconstruct its meaning from raw cell values to verify they'd built what they intended.</p>
+            <p>Both problems came from the same place: a system that trusted the user to hold everything in their head rather than reflecting it back.</p>
+            <h4 class="reasoning-heading">Three changes, all addressing the same need: confidence before action</h4>
+            <p><strong>Test Node</strong> — added as a co-primary action alongside Save Node. Before committing a rule to the flow, a risk manager can run it against test inputs and see the match result. The validation step that was missing is now the step before save. This came from direct experience: even building flows myself, I found it genuinely difficult to know whether a complex rule was correct without some form of simulation.</p>
+            <p><strong>Rule Summary</strong> — a continuously-updated plain-language translation of the configured rule, visible in the sidebar: "If CreditScore ≥ 700 and LoanAmount ≤ 50,000 → Approved. Otherwise → Rejected." The interface reflects the rule back in the language the risk manager already thinks in — conditions and outcomes — rather than asking them to assemble it from cells. Rule Summary was the natural companion to Test Node: if you can validate a rule, you should also be able to read it in plain language without reconstructing it from raw values.</p>
+            <p><strong>Health Status</strong> — object-level system state surfaced passively in the sidebar: whether the node is functioning, has conflicts, or is in draft. No navigation required to check it. The information is present without requiring the user to go looking.</p>
+            <p>Together, these changes move the cognitive load off the user. A risk manager shouldn't have to hold the rule, its implications, and the system state simultaneously. The interface should carry that weight.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ── 03 · HOW IT WAS BUILT ──────────────────────────────── -->
+      <section class="case-section fade-in-el">
+        <p class="section-num">03 · HOW IT WAS BUILT</p>
+
+        <div class="screenshot-frame screenshot-frame--placeholder screenshot-frame--wide">
+          <span class="placeholder-label">Tool chain · dark</span>
+        </div>
+
+        <div class="summary-blocks">
+          <div class="summary-block">
+            <p class="summary-label">PROBLEM</p>
+            <p class="summary-text">Token architecture, component library, full flows in light and dark — a process that normally takes weeks. Built solo, in days, using Claude, Claude Code, and Figma MCP.</p>
+          </div>
+          <div class="summary-block">
+            <p class="summary-label">RESULT</p>
+            <p class="summary-text">The manual labor was replaced. The judgment wasn't.</p>
+          </div>
+        </div>
+
+        <details class="reasoning">
+          <summary class="reasoning-toggle">FULL REASONING</summary>
+          <div class="reasoning-body">
+            <p>This redesign wasn't a client brief. It was a deliberate experiment: take a complex system I'd shipped, apply the critical distance that only comes after launch, and use AI tooling to compress a process that would normally take weeks into days.</p>
+            <p>The workflow was divided by what each tool does best. Claude handled planning, audit, and spec work — the analytical layer where structured thinking matters more than execution speed. Claude Code and Codex handled component generation and execution. Figma MCP kept design and implementation in sync throughout, eliminating the round-trips that normally fragment this kind of work.</p>
+            <p>Working this way created something genuinely hard to maintain in pure execution mode: critical distance. When the model handles the mechanical work, there's room to step back and audit decisions rather than just make them.</p>
+            <h4 class="reasoning-heading">Three things I'd do differently</h4>
+            <div class="screenshot-frame screenshot-frame--placeholder screenshot-frame--wide reasoning-visual">
+              <span class="placeholder-label">Reflection · Slide 7</span>
+            </div>
+            <p><strong>Plan the system before building it.</strong> I underinvested in design system structure upfront. The result was over 116 tokens that became unusable — more time spent fixing than building. The right ratio is closer to 80% planning, 20% execution. This applies to AI-assisted work more than traditional work: the model executes fast, which means structural mistakes compound fast.</p>
+            <p><strong>Match the model to the task.</strong> I used Opus for tasks Sonnet handles equally well, which burned through the weekly token budget in three days. Choosing which model to use for which task is an operational decision that directly affects output. Treating it as a footnote is how you run out of credits midway through a complex system.</p>
+            <p><strong>Structure the workflow before starting.</strong> I had the right tools — Claude, Claude Code, Figma MCP — but used them without a defined sequence on the first run. The knowledge is now structured. I know how to sequence the work before it begins, not reconstruct the workflow while it's in progress.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- ── 04 · WHAT'S NEXT ────────────────────────────────────── -->
+      <section class="case-section case-section--last fade-in-el">
+        <p class="section-num">04 · WHAT'S NEXT</p>
+
+        <div class="screenshot-frame screenshot-frame--placeholder screenshot-frame--wide">
+          <span class="placeholder-label">What's Next · Slide 8</span>
+        </div>
+
+        <div class="summary-blocks">
+          <div class="summary-block">
+            <p class="summary-text">The system isn't finished. Storybook in progress, additional objects planned, and an interactive demo of the full system coming soon.</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</Layout>
+
+<style>
+  /* ── Page layout — two-column ───────────────────────────────── */
+  .case-page {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    align-items: start;
+  }
+
+  /* ── Left panel — sticky ────────────────────────────────────── */
+  .case-panel {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    padding: 48px 40px 48px 0;
+    border-right: 1px solid var(--color-border-default);
+    scrollbar-width: none;
+  }
+
+  .case-panel::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* ── Panel content ──────────────────────────────────────────── */
+  .panel-title-block {
+    margin-bottom: 32px;
+  }
+
+  .panel-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-weight: 800;
+    letter-spacing: var(--letter-spacing-title);
+    line-height: 1.15;
+    color: var(--color-text-primary);
+    margin: 0 0 12px;
+  }
+
+  .panel-desc {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-body);
+    letter-spacing: var(--letter-spacing-body);
+    line-height: var(--line-height-body);
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  /* ── Meta grid — 2×2 ───────────────────────────────────────── */
+  .meta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    border: 1px solid var(--color-border-default);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+
+  .meta-item {
+    padding: 12px 14px;
+    background-color: var(--color-bg-surface);
+  }
+
+  .meta-item:nth-child(1),
+  .meta-item:nth-child(2) {
+    border-bottom: 1px solid var(--color-border-default);
+  }
+
+  .meta-item:nth-child(odd) {
+    border-right: 1px solid var(--color-border-default);
+  }
+
+  /* ── Meta block — full-width text block ─────────────────────── */
+  .meta-block {
+    padding: 16px 0;
+    border-top: 1px solid var(--color-border-default);
+  }
+
+  .meta-label {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-label);
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-label);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    margin: 0 0 8px;
+  }
+
+  .meta-value {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-body);
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-body);
+    line-height: var(--line-height-body);
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  .meta-body {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-body);
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-body);
+    line-height: var(--line-height-body);
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  /* ── Right content column ───────────────────────────────────── */
+  .case-content {
+    min-width: 0;
+  }
+
+  /* ── Hero section ───────────────────────────────────────────── */
+  .section-hero {
+    padding: 48px 0 0 48px;
+  }
+
+  .hero-frame {
+    position: relative;
+    background-color: var(--color-bg-surface);
+    border: 1px solid var(--color-border-default);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .hero-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: opacity 100ms ease;
+  }
+
+  /* ── Sections ───────────────────────────────────────────────── */
+  .case-section {
+    padding: 56px 0 56px 48px;
+    border-top: 1px solid var(--color-border-default);
+  }
+
+  .case-section--last {
+    padding-bottom: 120px;
+  }
+
+  .section-num {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-label);
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-label);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    margin: 0 0 32px;
+  }
+
+  /* ── Diagnostic cards — section 00 ─────────────────────────── */
+  .diag-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .diag-card {
+    background-color: var(--color-bg-surface);
+    border: 1px solid var(--color-border-default);
+    border-radius: 10px;
+    padding: 18px;
+  }
+
+  .diag-num {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-meta);
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-meta);
+    color: var(--color-text-faint);
+    text-transform: uppercase;
+    margin: 0 0 10px;
+  }
+
+  .diag-heading {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-body);
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-body);
+    line-height: 1.4;
+    color: var(--color-text-primary);
+    margin: 0 0 8px;
+  }
+
+  .diag-body {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-body);
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-body);
+    line-height: var(--line-height-body);
+    color: var(--color-text-secondary);
+    margin: 0 0 12px;
+  }
+
+  .diag-link {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-meta);
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-meta);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  /* ── Summary blocks (PROBLEM / SOLUTION / RESULT labels) ────── */
+  .summary-blocks {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .summary-block {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 16px;
+    align-items: baseline;
+  }
+
+  .summary-label {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-label);
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-label);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    margin: 0;
+    padding-top: 2px;
+  }
+
+  .summary-text {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-body);
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-body);
+    line-height: var(--line-height-body);
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  /* ── Closing copy ───────────────────────────────────────────── */
+  .closing-copy {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-body);
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-body);
+    line-height: var(--line-height-body);
+    color: var(--color-text-muted);
+    margin: 20px 0 0;
+    max-width: 640px;
+  }
+
+  /* ── Expandable — FULL REASONING ────────────────────────────── */
+  .reasoning {
+    margin-top: 28px;
+    border-top: 1px solid var(--color-border-default);
+    padding-top: 20px;
+  }
+
+  .reasoning-toggle {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-label);
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-label);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .reasoning-toggle::-webkit-details-marker {
+    display: none;
+  }
+
+  .reasoning-toggle::before {
+    content: "+";
+    font-size: 0.75rem;
+    line-height: 1;
+    color: var(--color-text-faint);
+  }
+
+  details[open] .reasoning-toggle::before {
+    content: "−";
+  }
+
+  .reasoning-body {
+    margin-top: 24px;
+    max-width: 640px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .reasoning-body p {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-body);
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-body);
+    line-height: var(--line-height-body);
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  .reasoning-body em {
+    font-style: italic;
+    color: var(--color-text-primary);
+  }
+
+  .reasoning-body strong {
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+
+  .reasoning-heading {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-body);
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-body);
+    color: var(--color-text-primary);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-label);
+    font-size: var(--font-size-label);
+    margin: 8px 0 0;
+  }
+
+  .reasoning-visual {
+    margin: 8px 0 8px;
+  }
+
+  /* ── Before / After ─────────────────────────────────────────── */
+  .before-after {
+    display: flex;
+    gap: 24px;
+  }
+
+  .ba-col {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .ba-label {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-meta);
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-meta);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    margin: 10px 0 0;
+  }
+
+  /* ── Screenshot frame ───────────────────────────────────────── */
+  .screenshot-frame {
+    background-color: var(--color-bg-surface);
+    border: 1px solid var(--color-border-default);
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .screenshot-frame--wide {
+    padding: 20px;
+  }
+
+  .screenshot-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    transition: opacity 100ms ease;
+  }
+
+  /* ── Placeholder frame ──────────────────────────────────────── */
+  .screenshot-frame--placeholder {
+    aspect-ratio: 16 / 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-style: dashed;
+    border-color: var(--color-border-muted);
+  }
+
+  .placeholder-label {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-meta);
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-meta);
+    color: var(--color-text-faint);
+    text-transform: uppercase;
+  }
+
+  /* ── Dark / Light toggle ────────────────────────────────────── */
+  .toggle {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    z-index: 1;
+  }
+
+  .toggle-btn {
+    font-family: var(--font-mono);
+    font-size: 0.5625rem;
+    font-weight: 400;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: color 150ms ease;
+  }
+
+  .toggle-btn.active {
+    color: var(--color-text-primary);
+  }
+
+  .toggle-sep {
+    font-family: var(--font-mono);
+    font-size: 0.5625rem;
+    color: var(--color-text-faint);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  /* ── Scroll fade-in ─────────────────────────────────────────── */
+  .fade-in-el {
+    opacity: 0;
+    transform: translateY(10px);
+    transition:
+      opacity 400ms ease,
+      transform 400ms ease;
+  }
+
+  .fade-in-el.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── Mobile — single column ─────────────────────────────────── */
+  @media (max-width: 860px) {
+    .case-page {
+      grid-template-columns: 1fr;
+      padding: 0 24px;
+    }
+
+    .case-panel {
+      position: static;
+      height: auto;
+      padding: 40px 0 32px;
+      border-right: none;
+      border-bottom: 1px solid var(--color-border-default);
+    }
+
+    .section-hero,
+    .case-section {
+      padding-left: 0;
+    }
+
+    .section-hero {
+      padding-top: 40px;
+    }
+
+    .case-section {
+      padding: 48px 0;
+    }
+
+    .case-section--last {
+      padding-bottom: 80px;
+    }
+
+    .diag-cards {
+      grid-template-columns: 1fr;
+    }
+
+    .before-after {
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .summary-block {
+      grid-template-columns: 64px 1fr;
+    }
+  }
+</style>
+
+<script>
+  // ── Dark / Light toggle ─────────────────────────────────────
+  document.querySelectorAll<HTMLElement>('[data-toggle]').forEach((toggle) => {
+    const frame = toggle.closest<HTMLElement>('.hero-frame, .screenshot-frame');
+    if (!frame) return;
+    const img = frame.querySelector<HTMLImageElement>('.screenshot-img, .hero-img');
+    const btns = toggle.querySelectorAll<HTMLButtonElement>('.toggle-btn');
+
+    btns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const mode = btn.dataset.mode as 'light' | 'dark';
+        if (!img || !img.dataset[mode]) return;
+        btns.forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        img.style.opacity = '0';
+        setTimeout(() => {
+          img.src = img.dataset[mode]!;
+          img.style.opacity = '1';
+        }, 100);
+      });
+    });
+  });
+
+  // ── Scroll fade-in ──────────────────────────────────────────
+  const fadeEls = document.querySelectorAll<HTMLElement>('.fade-in-el');
+
+  const fadeObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.05 }
+  );
+
+  fadeEls.forEach((el) => fadeObserver.observe(el));
+</script>

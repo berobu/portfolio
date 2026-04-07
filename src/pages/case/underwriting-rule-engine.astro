@@ -1,0 +1,1247 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout title="Underwriting Rule Engine — Igor Bielov">
+  <Nav />
+
+  <div class="case-page">
+
+    <!-- ── HERO: two-column layout ──────────────────────────────── -->
+    <div class="hero-section">
+
+      <!-- Left column (35%): project identity -->
+      <div class="hero-left">
+
+        <!-- 1. Title -->
+        <h1 class="panel-title">Underwriting Rule Engine</h1>
+
+        <!-- 2. Description -->
+        <p class="panel-description">No-code platform for risk managers to build and manage loan approval logic without engineering.</p>
+
+        <!-- 3. Divider -->
+        <div class="panel-divider"></div>
+
+        <!-- 4. Metadata blocks -->
+        <div class="panel-meta-group">
+          <div class="panel-meta-block">
+            <span class="panel-meta-label">Domain</span>
+            <span class="panel-meta-value">Fintech · B2B SaaS</span>
+          </div>
+          <div class="panel-meta-block">
+            <span class="panel-meta-label">Stage</span>
+            <span class="panel-meta-value">0→1</span>
+          </div>
+          <div class="panel-meta-block">
+            <span class="panel-meta-label">Role</span>
+            <span class="panel-meta-value">Solo Designer</span>
+          </div>
+          <div class="panel-meta-block">
+            <span class="panel-meta-label">Scope</span>
+            <span class="panel-meta-value">Full system — canvas, objects, design system</span>
+          </div>
+        </div>
+
+        <!-- 5. Divider -->
+        <div class="panel-divider"></div>
+
+        <!-- 6. THE PROBLEM block -->
+        <div class="panel-info-block">
+          <span class="panel-info-label">The Problem</span>
+          <p class="panel-info-body">Risk managers define the logic that approves, rejects, or flags loan applications. A wrong rule that reaches production isn't a UX problem — it's a compliance event. The product needed to give them control without requiring engineering to make a change.</p>
+        </div>
+
+        <!-- 7. Divider -->
+        <div class="panel-divider"></div>
+
+        <!-- 8. THE USER block -->
+        <div class="panel-info-block">
+          <span class="panel-info-label">The User</span>
+          <p class="panel-info-body">Finance and compliance professionals. Think in conditions and outcomes. Need certainty before they act. Cannot afford mistakes in production.</p>
+        </div>
+
+      </div>
+
+      <!-- Right column (65%): hero screenshot -->
+      <div class="hero-right">
+        <div class="hero-frame">
+          <img
+            class="hero-image"
+            src="/assets/cases/ure/hero-canvas-light.png"
+            alt="Underwriting Rule Engine — redesigned canvas"
+          />
+        </div>
+        <div class="hero-toggle">
+          <button class="hero-toggle-btn active" data-mode="light">
+            <svg class="hero-toggle-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4"/>
+              <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+            </svg>
+            Light
+          </button>
+          <span class="hero-toggle-sep"> / </span>
+          <button class="hero-toggle-btn" data-mode="dark">
+            <svg class="hero-toggle-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+            Dark
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+      <!-- ── SECTION 00 · WHAT WASN'T WORKING ───────────────────── -->
+      <section class="case-section s00">
+
+        <div class="s00-label">00 · WHAT WASN'T WORKING</div>
+
+        <div class="s00-cards">
+
+          <div class="s00-card">
+            <span class="s00-card-index">01</span>
+            <div class="s00-card-rule"></div>
+            <h3 class="s00-card-title">Navigation without hierarchy</h3>
+            <p class="s00-card-body">Flows, platform nav, and object management all mixed in one sidebar. No structure, no clear mental model for the user. Header navigation used space and didn't solve any problems.</p>
+          </div>
+
+          <div class="s00-card">
+            <span class="s00-card-index">02</span>
+            <div class="s00-card-rule"></div>
+            <h3 class="s00-card-title">Objects without feedback</h3>
+            <p class="s00-card-body">The system failed to provide visual feedback on whether the object is functional. No way to test a rule before deploying to production. Silent conflicts between elements of the object.</p>
+          </div>
+
+          <div class="s00-card">
+            <span class="s00-card-index">03</span>
+            <div class="s00-card-rule"></div>
+            <h3 class="s00-card-title">Outdated component library &amp; UI</h3>
+            <p class="s00-card-body">MUI base with no tokens, no dark mode, mixed icon styles. Every new screen required manual decisions from scratch. UI was strictly dictated by stakeholders.</p>
+          </div>
+
+        </div>
+
+        <div class="s00-problem">
+          <span class="s00-problem-label">PROBLEM</span>
+          <p class="s00-problem-body">The product was built 0→1 under real constraints. After shipping, I audited what we'd built. Three structural problems worth fixing.</p>
+          <p class="s00-problem-body">The first problem drove the Canvas redesign. The second drove the Decision Table redesign. The third — a visual language strictly dictated by the client — is what the full rebuild addressed.</p>
+        </div>
+
+        <div class="s00-expandable">
+          <button class="s00-toggle" aria-expanded="false">+ WHY THE VISUAL LANGUAGE CHANGED</button>
+          <div class="s00-expand-body" hidden>
+            <p class="s00-expand-text">The original UI was built on an MUI base with explicit client requirements: the visual direction was windows-like — heavy icons, colored action bars, dense component styling. For a precision tool used by finance professionals making high-stakes decisions, that visual language creates the wrong cognitive context. It signals a generic enterprise dashboard, not a system built for focused, careful work.</p>
+            <p class="s00-expand-text">The redesign used Linear as the reference point. Linear is a complex system used by people who need to move fast and trust what they're looking at. Its visual language — minimal chrome, clear hierarchy, nothing competing with the content — is what makes it feel like a precision tool rather than a form-filling interface. That's the direction the redesign follows: strip everything that isn't earning its visual weight, and let the structure of the information do the work.</p>
+            <p class="s00-expand-text">The result is a dramatic visual shift from the original. That shift wasn't arbitrary — it was a deliberate correction of a UI language that was working against the user.</p>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ── SECTION 01 · CANVAS ─────────────────────────────────── -->
+      <section class="case-section s01">
+
+        <div class="s01-label">01 · CANVAS</div>
+
+        <!-- Before/After visual pair -->
+        <div class="s01-pair">
+
+          <!-- BEFORE frame -->
+          <div class="s01-frame">
+            <img
+              class="s01-frame-img"
+              src="/assets/cases/ure/canvas-before.png"
+              alt="Canvas sidebar — before redesign"
+            />
+            <div class="s01-frame-label">BEFORE</div>
+            <div class="s01-frame-sublabel">ORIGINAL · 2022</div>
+          </div>
+
+          <!-- AFTER frame -->
+          <div class="s01-frame s01-after-frame">
+            <div class="s01-img-toggle">
+              <button class="s01-img-toggle-btn active" data-mode="light">LIGHT</button>
+              <span class="s01-img-toggle-sep"> / </span>
+              <button class="s01-img-toggle-btn" data-mode="dark">DARK</button>
+            </div>
+            <img
+              class="s01-after-img"
+              src="/assets/cases/ure/canvas-after-light.png"
+              alt="Canvas sidebar — after redesign"
+            />
+            <div class="s01-frame-label">AFTER</div>
+          </div>
+
+        </div>
+
+        <!-- Summary -->
+        <div class="s01-summary">
+          <div class="s01-summary-block">
+            <span class="s01-summary-label">PROBLEM</span>
+            <p class="s01-summary-body">Navigation without hierarchy. Flow management and system utilities shared one sidebar — no separation between active work and platform tools. A risk manager's core question on entry: 'am I in production or draft?' The original gave no clear answer.</p>
+          </div>
+          <div class="s01-summary-block">
+            <span class="s01-summary-label">SOLUTION</span>
+            <p class="s01-summary-body">Two-zone sidebar — flow states at top, platform tools anchored at the bottom. The safety check answered before the risk manager touches a node.</p>
+          </div>
+        </div>
+
+        <!-- Expandable -->
+        <div class="s01-expandable">
+          <button class="s01-exp-toggle" aria-expanded="false">+ FULL REASONING</button>
+          <div class="s01-expand-body" hidden>
+            <p class="s01-expand-text">The original sidebar mixed two fundamentally different types of information in one undifferentiated list.</p>
+            <p class="s01-expand-text">Flow states — which flow is live, which is a draft, which is currently active — answer the question a risk manager asks before touching anything: am I editing the live system or a draft? This is not a navigational question. It's a safety check. Getting it wrong has compliance consequences.</p>
+            <p class="s01-expand-text">Platform tools — Data Dictionary, Changes History, Reports — are reference utilities. They answer a different question, asked at different moments, consulted occasionally rather than constantly.</p>
+            <p class="s01-expand-text">In the original, both sat in the same column with the same visual weight. No hierarchy, no separation. Every time a risk manager opened the canvas, they had to scan the entire sidebar to find their orientation. For a user whose primary anxiety before editing is draft vs. production status, that's the wrong cognitive environment.</p>
+            <div class="s01-expand-subhead">THE PROPOSED FIX — AND WHY IT GOT BLOCKED</div>
+            <p class="s01-expand-text">The most direct solution was to move platform utilities into the header. Global tools that affect the whole platform belong in global navigation, not in a workspace-specific sidebar. I prepared several examples showing this separation: header for platform-wide utilities, sidebar for workspace context.</p>
+            <p class="s01-expand-text">The client refused. Their reasoning: the other products in the portfolio used the header for notifications — Follow-ups, Comments, Alerts, system-wide communication features. They wanted header treatment to be consistent across all eight products.</p>
+            <p class="s01-expand-text">The consistency rationale applied to products that actually used the header for communication features. Underwriting had none of those planned. But the client held the position, and we couldn't reach agreement.</p>
+            <div class="s01-expand-subhead">THE REDESIGN</div>
+            <p class="s01-expand-text">Rather than leaving the sidebar as-is or fighting a blocked path, the redesign introduces two explicit zones within the sidebar itself.</p>
+            <p class="s01-expand-text">Flow states sit at the top — Production Flow clearly labeled, Draft Flows below it, the active flow tree nested underneath. The risk manager's first question is answered at the top of the panel before they look at anything else.</p>
+            <p class="s01-expand-text">Platform tools are anchored to the bottom under a distinct PLATFORM label. This follows an established pattern in complex SaaS tools: Figma, Linear, and VS Code all separate primary working context from secondary utilities this way. The pattern exists because these are genuinely different modes of use — active work versus occasional reference — and visual separation reduces the cognitive load of distinguishing them.</p>
+            <p class="s01-expand-text">Bottom placement keeps platform tools accessible without surfacing them as competing priorities. A risk manager working in a flow doesn't need Data Dictionary in their visual field. When they do need it, it's there — labeled, findable, at the bottom of the same panel.</p>
+            <div class="s01-expand-subhead">THE OUTCOME</div>
+            <p class="s01-expand-text">A risk manager opening the canvas sees their flow states immediately. The question 'am I editing the live system?' is answered at a glance, before they touch a node.</p>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ── SECTION 03 · HOW IT WAS BUILT ───────────────────────── -->
+      <section class="case-section s03">
+
+        <div class="s03-label">03 · HOW IT WAS BUILT</div>
+
+        <!-- Tool Chain Component -->
+        <div class="s03-toolchain">
+
+          <div class="s03-tool-card">
+            <div class="s03-tool-card-inner">
+              <img src="/assets/cases/ure/claude.png" alt="Claude" class="s03-tool-logo" />
+              <ul class="s03-tool-list">
+                <li>Planning</li>
+                <li>Audit</li>
+                <li>Spec work</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="s03-tool-sep">+</div>
+
+          <div class="s03-tool-card">
+            <div class="s03-tool-card-inner">
+              <img src="/assets/cases/ure/codex.png" alt="Codex" class="s03-tool-logo" />
+              <ul class="s03-tool-list">
+                <li>Component generation</li>
+                <li>Execution</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="s03-tool-sep">+</div>
+
+          <div class="s03-tool-card">
+            <div class="s03-tool-card-inner">
+              <img src="/assets/cases/ure/figma.png" alt="Figma" class="s03-tool-logo" />
+              <ul class="s03-tool-list">
+                <li>Design / implementation sync</li>
+                <li>Figma MCP</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Summary -->
+        <div class="s03-summary">
+          <div class="s03-summary-block">
+            <span class="s03-summary-label">PROBLEM</span>
+            <p class="s03-summary-body">Token architecture, component library, full flows in light and dark — a process that normally takes weeks. Built solo, in days, using Claude, Claude Code, and Figma MCP.</p>
+          </div>
+          <div class="s03-summary-block">
+            <span class="s03-summary-label">RESULT</span>
+            <p class="s03-summary-body">The manual labor was replaced. The judgment wasn't.</p>
+          </div>
+        </div>
+
+        <!-- Expandable -->
+        <div class="s03-expandable">
+          <button class="s03-exp-toggle" aria-expanded="false">+ FULL REASONING</button>
+          <div class="s03-expand-body" hidden>
+
+            <p class="s03-expand-text">This redesign wasn't a client brief. It was a deliberate experiment: take a complex system I'd shipped, apply the critical distance that only comes after launch, and use AI tooling to compress a process that would normally take weeks into days.</p>
+            <p class="s03-expand-text">The workflow was divided by what each tool does best. Claude handled planning, audit, and spec work — the analytical layer where structured thinking matters more than execution speed. Claude Code and Codex handled component generation and execution. Figma MCP kept design and implementation in sync throughout, eliminating the round-trips that normally fragment this kind of work.</p>
+            <p class="s03-expand-text">Working this way created something genuinely hard to maintain in pure execution mode: critical distance. When the model handles the mechanical work, there's room to step back and audit decisions rather than just make them.</p>
+
+            <div class="s03-expand-subhead">Three things I'd do differently</div>
+
+            <!-- Reflection Cards -->
+            <div class="s03-reflect-cards">
+
+              <div class="s03-reflect-card">
+                <span class="s03-reflect-index">01</span>
+                <h3 class="s03-reflect-title">Plan the system before building it</h3>
+                <p class="s03-reflect-body">I underinvested in design system structure upfront. The result was over 116 tokens that became unusable — more time spent fixing than building. The right ratio is closer to 80% planning, 20% execution. This applies to AI-assisted work more than traditional work: the model executes fast, which means structural mistakes compound fast.</p>
+              </div>
+
+              <div class="s03-reflect-card">
+                <span class="s03-reflect-index">02</span>
+                <h3 class="s03-reflect-title">Match the model to the task</h3>
+                <p class="s03-reflect-body">I used Opus for tasks Sonnet handles equally well, which burned through the weekly token budget in three days. Choosing which model to use for which task is an operational decision that directly affects output. Treating it as a footnote is how you run out of credits midway through a complex system.</p>
+              </div>
+
+              <div class="s03-reflect-card">
+                <span class="s03-reflect-index">03</span>
+                <h3 class="s03-reflect-title">Structure the workflow before starting</h3>
+                <p class="s03-reflect-body">I had the right tools — Claude, Claude Code, Figma MCP — but used them without a defined sequence on the first run. The knowledge is now structured. I know how to sequence the work before it begins, not reconstruct the workflow while it's in progress.</p>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ── SECTION 04 · WHAT'S NEXT ─────────────────────────────── -->
+      <section class="case-section s04">
+
+        <div class="s04-label">04 · WHAT'S NEXT</div>
+
+        <div class="s04-cards">
+
+          <div class="s04-card">
+            <span class="s04-card-index">01</span>
+            <div class="s04-card-divider"></div>
+            <h3 class="s04-card-title">Storybook</h3>
+            <p class="s04-card-body">Planning to finish Component Storybook and gain experience for future projects. It will help with Dev.+Design workflow.</p>
+          </div>
+
+          <div class="s04-card">
+            <span class="s04-card-index">02</span>
+            <div class="s04-card-divider"></div>
+            <h3 class="s04-card-title">Finish additional Objects</h3>
+            <p class="s04-card-body">Add few more objects to make the system more flexible and finished.</p>
+          </div>
+
+          <div class="s04-card">
+            <span class="s04-card-index">03</span>
+            <div class="s04-card-divider"></div>
+            <h3 class="s04-card-title">Demo</h3>
+            <p class="s04-card-body">Build a demo showcase with system's capabilities with AI.</p>
+          </div>
+
+        </div>
+
+        <p class="s04-summary">The system isn't finished. Storybook in progress, additional objects planned, and an interactive demo of the full system coming soon.</p>
+
+      </section>
+
+  </div>
+
+  <Footer />
+
+<script is:inline>
+  const btns = document.querySelectorAll('.hero-toggle-btn');
+  const img  = document.querySelector('.hero-image');
+  const srcs = {
+    light: '/assets/cases/ure/hero-canvas-light.png',
+    dark:  '/assets/cases/ure/hero-canvas-dark.png',
+  };
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      img.src = srcs[btn.dataset.mode];
+    });
+  });
+</script>
+
+<script is:inline>
+  const s01Btns = document.querySelectorAll('.s01-img-toggle-btn');
+  const s01Img  = document.querySelector('.s01-after-img');
+  const s01Srcs = {
+    light: '/assets/cases/ure/canvas-after-light.png',
+    dark:  '/assets/cases/ure/canvas-after-dark.png',
+  };
+  s01Btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      s01Btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      s01Img.src = s01Srcs[btn.dataset.mode];
+    });
+  });
+</script>
+
+<script is:inline>
+  const s01ExpToggle = document.querySelector('.s01-exp-toggle');
+  const s01ExpBody   = document.querySelector('.s01-expand-body');
+  if (s01ExpToggle && s01ExpBody) {
+    s01ExpToggle.addEventListener('click', () => {
+      const expanded = s01ExpToggle.getAttribute('aria-expanded') === 'true';
+      s01ExpToggle.setAttribute('aria-expanded', String(!expanded));
+      s01ExpToggle.textContent = expanded ? '+ FULL REASONING' : '− FULL REASONING';
+      s01ExpBody.hidden = expanded;
+    });
+  }
+</script>
+
+<script is:inline>
+  const toggle = document.querySelector('.s00-toggle');
+  const body   = document.querySelector('.s00-expand-body');
+  if (toggle && body) {
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      toggle.textContent = expanded
+        ? '+ WHY THE VISUAL LANGUAGE CHANGED'
+        : '− WHY THE VISUAL LANGUAGE CHANGED';
+      body.hidden = expanded;
+    });
+  }
+</script>
+
+<script is:inline>
+  const s03ExpToggle = document.querySelector('.s03-exp-toggle');
+  const s03ExpBody   = document.querySelector('.s03-expand-body');
+  if (s03ExpToggle && s03ExpBody) {
+    s03ExpToggle.addEventListener('click', () => {
+      const expanded = s03ExpToggle.getAttribute('aria-expanded') === 'true';
+      s03ExpToggle.setAttribute('aria-expanded', String(!expanded));
+      s03ExpToggle.textContent = expanded ? '+ FULL REASONING' : '− FULL REASONING';
+      s03ExpBody.hidden = expanded;
+    });
+  }
+</script>
+
+</Layout>
+
+<style>
+  /* ── Page shell ──────────────────────────────────────────────── */
+  .case-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* ── Hero: two-column layout ──────────────────────────────────── */
+  .hero-section {
+    display: grid;
+    grid-template-columns: 35% 65%;
+    gap: 40px;
+    align-items: start;
+    margin-bottom: 80px;
+  }
+
+  .hero-left {
+    padding: 40px 0;
+  }
+
+  .hero-right {
+    padding: 40px 0 0;
+  }
+
+  /* ── Panel — title ──────────────────────────────────────────── */
+  .panel-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem; /* ~20px — panel width constrains display */
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: var(--color-text-primary);
+    margin: 0;
+  }
+
+  /* ── Panel — description ─────────────────────────────────────── */
+  .panel-description {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem; /* 11px */
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-body);
+    line-height: var(--line-height-body);
+    color: var(--color-text-secondary);
+    margin: 24px 0 0;
+  }
+
+  /* ── Panel — divider ─────────────────────────────────────────── */
+  .panel-divider {
+    height: 1px;
+    background-color: var(--color-border-default);
+    margin: 32px 0 0;
+  }
+
+  /* ── Panel — metadata group ──────────────────────────────────── */
+  .panel-meta-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .panel-meta-group .panel-meta-block:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Second divider — after last meta block */
+  .panel-meta-group + .panel-divider {
+    margin-top: 32px;
+  }
+
+  .panel-meta-block {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .panel-meta-label {
+    font-family: var(--font-mono);
+    font-size: 0.625rem; /* 10px */
+    font-weight: 400;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  .panel-meta-value {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem; /* 11px */
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-body);
+    line-height: 1.5;
+    color: var(--color-text-primary);
+  }
+
+  /* ── Panel — info blocks (THE PROBLEM / THE USER) ────────────── */
+  .panel-info-block {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .panel-info-label {
+    font-family: var(--font-mono);
+    font-size: 0.625rem; /* 10px */
+    font-weight: 400;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  .panel-info-body {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem; /* 11px */
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-body);
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  /* Divider before THE PROBLEM — spacing from last meta block already handled */
+  .panel-info-block + .panel-divider {
+    margin-top: 32px;
+  }
+
+  /* ── Hero frame ─────────────────────────────────────────────── */
+  .hero-frame {
+    position: relative;
+    background: var(--color-bg-surface);
+    border: 1px solid var(--color-border-default);
+    border-radius: 12px;
+    padding: 24px;
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  .hero-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+
+  /* ── Hero toggle ─────────────────────────────────────────────── */
+  .hero-toggle {
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+  }
+
+  .hero-toggle-btn {
+    font-family: var(--font-mono);
+    font-size: 0.625rem; /* 10px */
+    font-weight: 400;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .hero-toggle-icon {
+    flex-shrink: 0;
+  }
+
+  .hero-toggle-btn.active {
+    color: var(--color-text-primary);
+  }
+
+  .hero-toggle-sep {
+    font-family: var(--font-mono);
+    font-size: 0.625rem; /* 10px */
+    letter-spacing: 0.10em;
+    color: var(--color-text-muted);
+    line-height: 1;
+    user-select: none;
+  }
+
+  /* ── Section 00 · What Wasn't Working ──────────────────────── */
+  .case-section {
+    margin-bottom: 80px;
+  }
+
+  .s00-label {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-label); /* 10px */
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-label); /* 0.14em */
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-bottom: 32px;
+  }
+
+  .s00-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .s00-card {
+    background: linear-gradient(to bottom, var(--color-bg-surface), var(--color-bg-subtle));
+    border: 1px solid var(--color-border-default);
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  .s00-card-index {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-label); /* 10px */
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-label);
+    color: var(--color-accent);
+    display: block;
+  }
+
+  .s00-card-rule {
+    width: 24px;
+    height: 1px;
+    background-color: var(--color-accent);
+    margin: 8px 0;
+  }
+
+  .s00-card-title {
+    font-family: var(--font-display);
+    font-size: 1.125rem; /* 18px */
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    color: var(--color-text-primary);
+    margin: 16px 0 0;
+  }
+
+  .s00-card-body {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem; /* 13px */
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-body);
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin: 12px 0 0;
+  }
+
+  @media (max-width: 768px) {
+    .s00-cards {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .s00-problem {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .s00-problem-label {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-label); /* 10px */
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  .s00-problem-body {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-body); /* 11px */
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-body);
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  .s00-expandable {
+    margin-top: 24px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .s00-toggle {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-label); /* 10px */
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-meta); /* 0.10em */
+    text-transform: uppercase;
+    color: var(--color-accent);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  .s00-expand-body {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .s00-expand-text {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-body); /* 11px */
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-body);
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  /* ── Section 01 · Canvas ────────────────────────────────────── */
+
+  .s01-label {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-label);
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-bottom: 32px;
+  }
+
+  .s01-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .s01-frame {
+    background: var(--color-bg-surface);
+    border: 1px solid var(--color-border-default);
+    border-radius: 12px;
+    padding: 16px;
+    position: relative;
+  }
+
+  .s01-frame-img,
+  .s01-after-img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .s01-frame-label {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-label);
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-top: 8px;
+  }
+
+  .s01-frame-sublabel {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-label);
+    font-weight: 400;
+    letter-spacing: 0;
+    color: var(--color-text-faint);
+  }
+
+  .s01-img-toggle {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+  }
+
+  .s01-img-toggle-btn {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-label);
+    font-weight: 400;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  .s01-img-toggle-btn.active {
+    color: var(--color-text-primary);
+  }
+
+  .s01-img-toggle-sep {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-label);
+    color: var(--color-text-muted);
+    user-select: none;
+    line-height: 1;
+  }
+
+  .s01-summary {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .s01-summary-block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .s01-summary-label {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-label);
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  .s01-summary-body {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem; /* 13px */
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-body);
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  .s01-expandable {
+    margin-top: 24px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .s01-exp-toggle {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-label);
+    font-weight: 400;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  .s01-expand-body {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .s01-expand-text {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem; /* 11px */
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-body);
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  .s01-expand-subhead {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-label);
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-top: 24px;
+    margin-bottom: 8px;
+  }
+
+  /* Mobile — stack BEFORE on top, AFTER below */
+  @media (max-width: 768px) {
+    .s01-pair {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ── Section 03 · How It Was Built ─────────────────────────── */
+
+  .s03-label {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-label);
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-bottom: 32px;
+  }
+
+  /* Tool chain */
+  .s03-toolchain {
+    display: flex;
+    align-items: stretch;
+    margin-bottom: 32px;
+  }
+
+  .s03-tool-card {
+    flex: 1;
+    background: linear-gradient(to bottom, var(--color-bg-surface), var(--color-bg-subtle));
+    border: 1px solid var(--color-border-default);
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  .s03-tool-card-inner {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .s03-tool-logo {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    object-fit: contain;
+  }
+
+  .s03-tool-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem; /* 13px */
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-body);
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+  }
+
+  .s03-tool-sep {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem; /* 13px */
+    color: var(--color-text-muted);
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    flex-shrink: 0;
+  }
+
+  /* Summary */
+  .s03-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .s03-summary-block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .s03-summary-label {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-label);
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  .s03-summary-body {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem; /* 13px */
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-body);
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  /* Expandable */
+  .s03-expandable {
+    margin-top: 24px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .s03-exp-toggle {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-label);
+    font-weight: 400;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  .s03-expand-body {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .s03-expand-text {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem; /* 11px */
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-body);
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  .s03-expand-subhead {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-label);
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-top: 32px;
+    margin-bottom: 24px;
+  }
+
+  /* Reflection cards */
+  .s03-reflect-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .s03-reflect-card {
+    background: linear-gradient(to bottom, var(--color-bg-surface), var(--color-bg-subtle));
+    border: 1px solid var(--color-border-default);
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  .s03-reflect-index {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-label);
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .s03-reflect-title {
+    font-family: var(--font-display);
+    font-size: 1.125rem; /* 18px */
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0 0 8px;
+    line-height: 1.2;
+  }
+
+  .s03-reflect-body {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem; /* 13px */
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-body);
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .s03-toolchain {
+      flex-direction: column;
+    }
+
+    .s03-tool-sep {
+      justify-content: center;
+      padding: 8px 0;
+    }
+
+    .s03-reflect-cards {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ── Section 04 · What's Next ──────────────────────────────── */
+
+  .s04-label {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-label); /* 10px */
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-bottom: 32px;
+  }
+
+  .s04-summary {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem; /* 13px */
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-body);
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin: 32px auto 0;
+    max-width: 640px;
+  }
+
+  .s04-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .s04-card {
+    background: linear-gradient(to bottom, var(--color-bg-surface), var(--color-bg-subtle));
+    border: 1px solid var(--color-border-default);
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  .s04-card-index {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-label); /* 10px */
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    display: block;
+  }
+
+  .s04-card-divider {
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-accent);
+    margin: 8px 0 20px;
+  }
+
+  .s04-card-title {
+    font-family: var(--font-display);
+    font-size: 1.125rem; /* 18px */
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0 0 8px;
+    line-height: 1.2;
+  }
+
+  .s04-card-body {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem; /* 13px */
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-body);
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .s04-cards {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Section 04 is the last section */
+  .s04 {
+    margin-bottom: 80px;
+  }
+
+  /* ── Section labels and text titles — primary color ─────────── */
+  .s00-label,
+  .s01-label,
+  .s03-label,
+  .s04-label,
+  .s00-problem-label,
+  .s01-summary-label,
+  .s01-expand-subhead,
+  .s03-summary-label,
+  .s03-expand-subhead {
+    color: var(--color-text-primary);
+  }
+
+  /* ── Mobile — single column ─────────────────────────────────── */
+  @media (max-width: 768px) {
+    .case-page {
+      padding: 0 20px;
+    }
+
+    .hero-section {
+      grid-template-columns: 1fr;
+      gap: 0;
+      margin-bottom: 64px;
+    }
+
+    .hero-left {
+      padding: 40px 0 32px;
+    }
+
+    .hero-right {
+      padding: 0;
+    }
+  }
+</style>

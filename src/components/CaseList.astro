@@ -1,0 +1,166 @@
+---
+// Case study list — SPEC-content-v1 + SPEC-design-v1
+---
+
+<section class="case-list" id="work">
+
+  <div class="divider"></div>
+
+  <!-- Row 01 — Underwriting Rule Engine -->
+  <a class="row row--link" href="/case/underwriting-rule-engine">
+    <span class="index">01</span>
+    <div class="content">
+      <p class="meta">Fintech · B2B SaaS · 0→1</p>
+      <h2 class="title">Underwriting Rule Engine</h2>
+      <p class="description">No-code platform for risk managers to build and manage business rules without engineering.</p>
+      <p class="metric" aria-hidden="true">↳ Impact metric · coming soon</p>
+    </div>
+    <span class="arrow" aria-hidden="true">↗</span>
+  </a>
+
+  <div class="divider"></div>
+
+  <!-- Row 02 — Coming Soon -->
+  <div class="row row--muted">
+    <span class="index">02</span>
+    <div class="content">
+      <p class="meta coming-soon">Coming Soon</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+</section>
+
+<style>
+  .case-list {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  .divider {
+    height: 1px;
+    background-color: var(--color-border-default);
+  }
+
+  /* ─── Row base ─────────────────────────────────────── */
+  .row {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .row--link {
+    cursor: pointer;
+    padding: 32px 24px;
+    background-color: transparent;
+    transition: background-color 150ms ease;
+  }
+
+  .row--link:hover {
+    background-color: var(--color-bg-subtle);
+  }
+
+  .row--muted {
+    padding: 32px 24px;
+  }
+
+  /* ─── Index ────────────────────────────────────────── */
+  .index {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-meta);
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-meta);
+    color: var(--color-text-faint);
+    min-width: 24px;
+    padding-top: 2px;
+    flex-shrink: 0;
+  }
+
+  /* ─── Content ──────────────────────────────────────── */
+  .content {
+    flex: 1;
+  }
+
+  .meta {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-label);
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-label);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    margin: 0 0 12px;
+    transition: color 150ms ease;
+  }
+
+  .row--link:hover .meta {
+    color: var(--color-accent);
+  }
+
+  .coming-soon {
+    margin: 0;
+    padding-top: 2px;
+  }
+
+  .title {
+    font-family: var(--font-display);
+    font-size: 2.25rem; /* 36px */
+    font-weight: 800;
+    letter-spacing: var(--letter-spacing-title);
+    line-height: 1.0;
+    color: var(--color-text-primary);
+    margin: 0 0 12px;
+  }
+
+  .description {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem; /* 13px */
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-body);
+    line-height: var(--line-height-body);
+    color: var(--color-text-secondary);
+    margin: 0;
+    max-width: 560px;
+  }
+
+  .metric {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-body);
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-body);
+    color: var(--color-accent);
+    margin: 8px 0 0;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 150ms ease, transform 150ms ease;
+  }
+
+  .row--link:hover .metric {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── Arrow ────────────────────────────────────────── */
+  .arrow {
+    font-family: var(--font-mono);
+    font-size: 16px;
+    color: var(--color-text-muted);
+    flex-shrink: 0;
+    padding-top: 2px;
+    transition: color 150ms ease, font-size 150ms ease;
+  }
+
+  .row--link:hover .arrow {
+    font-size: 24px;
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 640px) {
+    .case-list {
+      padding: 0 20px;
+    }
+  }
+</style>

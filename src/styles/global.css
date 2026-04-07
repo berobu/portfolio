@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────────────────────
+   Design tokens — SPEC-design-v1
+   All color + typography values live here; no hardcoded hex
+   in components.
+───────────────────────────────────────────────────────────── */
+@theme {
+  /* Backgrounds */
+  --color-bg-base:        #0C0B09;
+  --color-bg-surface:     #111009;
+  --color-bg-subtle:      #161510;
+
+  /* Borders */
+  --color-border-default: #1C1B18;
+  --color-border-muted:   #2A2820;
+  --color-border-hover:   #2E2C26;
+
+  /* Text */
+  --color-text-primary:   #F2EDE4;
+  --color-text-secondary: #5C5850;
+  --color-text-muted:     #3D3A34;
+  --color-text-faint:     #2E2C26;
+  --color-accent:         #D4FF3E;
+
+  /* Fonts */
+  --font-display: 'Inter', sans-serif;
+  --font-mono:    'DM Mono', monospace;
+
+  /* Font sizes */
+  --font-size-display: 3.75rem;                      /* 60px */
+  --font-size-title:   clamp(2rem, 3.5vw, 2.5rem);  /* 32–40px */
+  --font-size-label:   0.625rem;                     /* 10px */
+  --font-size-body:    0.6875rem;                    /* 11px */
+  --font-size-meta:    0.625rem;                     /* 10px */
+  --font-size-tag:     0.5625rem;                    /* 9px  */
+  --font-size-nav:     0.6875rem;                    /* 11px */
+
+  /* Letter spacing */
+  --letter-spacing-display: -0.03em; /* confirmed */
+  --letter-spacing-title:   -0.02em;
+  --letter-spacing-label:    0.14em;
+  --letter-spacing-body:     0.04em;
+  --letter-spacing-meta:     0.10em;
+  --letter-spacing-tag:      0.06em;
+  --letter-spacing-nav:      0.10em;
+
+  /* Line heights */
+  --line-height-display: 0.95;
+  --line-height-body:    1.65;
+}
+
+/* ─── Hero word-reveal keyframe ──────────────────────────── */
+@keyframes word-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── Base ───────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--color-bg-base);
+}
+
+body {
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+  font-family: var(--font-mono);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

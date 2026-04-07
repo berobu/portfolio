@@ -1,0 +1,91 @@
+---
+// Hero section — SPEC-design-v1 + SPEC-content-v1
+// Animation: staggered word reveal, ~600ms total, ease-out, one time
+
+// Headline split into two lines per spec ("breaks after 'interfaces'")
+const line1 = ['Clear,', 'considered', 'interfaces'];
+const line2 = ['for', 'complex', 'products.'];
+
+// Timing: 6 words × 50ms stagger + 350ms duration = 600ms total
+const STAGGER_MS = 50;
+const DURATION_MS = 350;
+---
+
+<section class="hero">
+  <p class="eyebrow">Product Designer</p>
+
+  <h1 class="headline" aria-label="Clear, considered interfaces for complex products.">
+    {line1.map((word, i) => (
+      <>
+        <span
+          class="word"
+          style={`animation: word-reveal ${DURATION_MS}ms ease-out ${i * STAGGER_MS}ms both;`}
+          aria-hidden="true"
+        >{word}</span>{i < line1.length - 1 ? ' ' : ''}
+      </>
+    ))}
+    <br />
+    {line2.map((word, i) => (
+      <>
+        <span
+          class="word"
+          style={`animation: word-reveal ${DURATION_MS}ms ease-out ${(line1.length + i) * STAGGER_MS}ms both;`}
+          aria-hidden="true"
+        >{word}</span>{i < line2.length - 1 ? ' ' : ''}
+      </>
+    ))}
+  </h1>
+
+  <p class="subline">
+    I bring rigour to ambiguous briefs and stay in it until the thing actually ships.
+  </p>
+</section>
+
+<style>
+  .hero {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px 40px 80px;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-label);
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-label);
+    color: var(--color-accent);
+    text-transform: uppercase;
+    margin: 0 0 24px;
+  }
+
+  .headline {
+    font-family: var(--font-display);
+    font-size: 3.75rem; /* 60px */
+    font-weight: 800;
+    letter-spacing: var(--letter-spacing-display);
+    line-height: var(--line-height-display);
+    color: var(--color-text-primary);
+    margin: 0 0 32px;
+  }
+
+  .word {
+    display: inline-block;
+  }
+
+  .subline {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-body);
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-body);
+    line-height: var(--line-height-body);
+    color: var(--color-text-secondary);
+    margin: 0;
+    max-width: 520px;
+  }
+
+  @media (max-width: 640px) {
+    .hero {
+      padding: 80px 20px 64px;
+    }
+  }
+</style>

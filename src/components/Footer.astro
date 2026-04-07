@@ -1,0 +1,61 @@
+---
+// Footer — SPEC-content-v1
+---
+
+<footer class="footer">
+  <p class="prompt">Got a product problem worth solving?</p>
+  <div class="links">
+    <a class="link" href="mailto:igor@bielov.com">igor@bielov.com</a>
+    <a class="link" href="https://linkedin.com/in/igorbielov" target="_blank" rel="noopener noreferrer">LinkedIn&nbsp;↗</a>
+    <a class="link" href="/cv.pdf" target="_blank" rel="noopener noreferrer">CV&nbsp;↗</a>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 40px;
+  }
+
+  .prompt {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 800;
+    letter-spacing: var(--letter-spacing-display);
+    color: var(--color-text-primary);
+    margin: 0 0 24px;
+  }
+
+  .links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .link {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-nav);
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-nav);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 150ms ease;
+  }
+
+  .link:hover {
+    color: var(--color-text-primary);
+  }
+
+  @media (max-width: 640px) {
+    .footer {
+      padding: 64px 20px;
+    }
+
+    .links {
+      gap: 20px;
+    }
+  }
+</style>
