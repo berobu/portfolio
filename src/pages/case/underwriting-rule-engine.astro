@@ -222,6 +222,119 @@ import Footer from '../../components/Footer.astro';
 
       </section>
 
+      <!-- ── SECTION 02 · CANVAS (COPY) ───────────────────────────── -->
+      <section class="case-section s02">
+
+        <div class="s02-label">02 · OBJECT (DECISION TABLE)</div>
+
+        <!-- Before/After visual pair -->
+        <div class="s02-pair">
+
+          <!-- BEFORE frame -->
+          <div class="s02-frame">
+            <img
+              class="s02-frame-img"
+              src="/assets/cases/ure/canvas-before.png"
+              alt="Canvas sidebar — before redesign"
+            />
+            <div class="s02-frame-caption s02-frame-caption--problem">
+              <div class="s02-frame-caption-header">
+                <svg class="s02-frame-caption-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="6" cy="6" r="5.5" stroke="currentColor"/>
+                  <path d="M4 4L8 8M8 4L4 8" stroke="currentColor" stroke-linecap="round"/>
+                </svg>
+                <span class="s02-frame-caption-title">Problem</span>
+              </div>
+              <p class="s02-frame-caption-body">A Decision Table is one of the system's core objects — risk managers use it to define business logic as a set of conditions and outcomes. The original had no way to validate a rule before committing it. You configured conditions, hit Save, and hoped the logic was right. A wrong rule reaching production isn't a UX problem — it's a compliance event.</p>
+            </div>
+          </div>
+
+          <!-- AFTER frame -->
+          <div class="s02-frame s02-after-frame">
+            <img
+              class="s02-after-img"
+              src="/assets/cases/ure/canvas-after-light.png"
+              alt="Canvas sidebar — after redesign"
+            />
+            <div class="s02-frame-caption s02-frame-caption--solution">
+              <div class="s02-frame-caption-header">
+                <svg class="s02-frame-caption-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="6" cy="6" r="5.5" stroke="currentColor"/>
+                  <path d="M3.5 6L5.5 8L8.5 4.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="s02-frame-caption-title">Solution</span>
+              </div>
+              <p class="s02-frame-caption-body">Test Node, Rule Summary, Health Status — three additions that move the verification work from the user's head into the interface.</p>
+              <div class="s02-img-toggle">
+                <button class="s02-img-toggle-btn active" data-mode="light">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="4"/>
+                    <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+                  </svg>
+                  Light
+                </button>
+                <span class="s02-img-toggle-sep"> / </span>
+                <button class="s02-img-toggle-btn" data-mode="dark">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                  </svg>
+                  Dark
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+        <!-- Summary text -->
+        <div class="s02-expand-subhead" style="max-width:640px;margin:32px auto 0;color:var(--color-text-primary);">THE OUTCOME</div>
+        <p class="s02-summary-text" style="margin-top:12px;">The original gave you no feedback loop. You built a rule, saved it, and found out if it was wrong in production. Three changes closed that gap: Test Node lets you validate before committing, Rule Summary reflects the rule back in plain language, Health Status surfaces system state passively. A risk manager can now finish a rule and know it's correct before it goes live.</p>
+
+        <div class="s02-expand-subhead" style="max-width:640px;margin:32px auto 0;color:var(--color-text-primary);">THREE CHANGES, ONE NEED: CONFIDENCE BEFORE ACTION</div>
+        <p class="s02-summary-text" style="margin-top:12px;"><span class="s02-expand-term">Test Node</span> — added alongside Save Node. Run the rule against test inputs, see the result, then commit. Building flows myself, I found it genuinely hard to know whether a complex rule was correct without some form of simulation.</p>
+
+        <!-- Test Node image switcher -->
+        <div class="dt-switcher">
+          <div class="dt-switcher-frame">
+            <img class="dt-switcher-img" src="/assets/cases/ure/DT-TestMode-Start-1.png" alt="Test Node state" />
+          </div>
+          <div class="dt-switcher-controls">
+            <button class="dt-arrow dt-arrow-prev" aria-label="Previous state">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"/>
+              </svg>
+            </button>
+            <span class="dt-state-label" data-state="test">TEST MODE</span>
+            <button class="dt-arrow dt-arrow-next" aria-label="Next state">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"/>
+              </svg>
+            </button>
+            <div class="dt-switcher-theme-toggle">
+              <button class="dt-theme-btn active" data-theme="light">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="4"/>
+                  <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+                </svg>
+                Light
+              </button>
+              <span class="dt-theme-sep"> / </span>
+              <button class="dt-theme-btn" data-theme="dark">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+                Dark
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <p class="s02-summary-text" style="margin-top:24px;"><span class="s02-expand-term">Rule Summary</span> — a plain-language translation of the configured rule, live in the sidebar: "If CreditScore ≥ 700 and LoanAmount ≤ 50,000 → Approved. Otherwise → Rejected." The interface reflects the rule back in the language risk managers already think in, rather than asking them to reconstruct it from table cells.</p>
+        <p class="s02-summary-text" style="margin-top:12px;"><span class="s02-expand-term">Health Status</span> — object-level system state in the sidebar: functioning, conflict, draft. No navigation required. The information is there without the user having to go looking.</p>
+
+      </section>
+
       <!-- ── SECTION 03 · HOW IT WAS BUILT ───────────────────────── -->
       <section class="case-section s03">
 
@@ -401,6 +514,67 @@ import Footer from '../../components/Footer.astro';
       s01ExpBody.hidden = expanded;
     });
   }
+</script>
+
+<script is:inline>
+  const s02Btns = document.querySelectorAll('.s02-img-toggle-btn');
+  const s02Img  = document.querySelector('.s02-after-img');
+  const s02Srcs = {
+    light: '/assets/cases/ure/canvas-after-light.png',
+    dark:  '/assets/cases/ure/canvas-after-dark.png',
+  };
+  s02Btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      s02Btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      s02Img.src = s02Srcs[btn.dataset.mode];
+    });
+  });
+</script>
+
+
+<script is:inline>
+  (function () {
+    const states = [
+      { label: 'TEST MODE', state: 'test',    light: '/assets/cases/ure/DT-TestMode-Start-1.png',   dark: '/assets/cases/ure/DT-TestMode-Start.png'     },
+      { label: 'SUCCESS',   state: 'success', light: '/assets/cases/ure/DT-TestMode-Success.png',   dark: '/assets/cases/ure/DT-TestMode-Success-1.png' },
+      { label: 'WARNING',   state: 'warning', light: '/assets/cases/ure/DT-TestMode-Warning.png',   dark: '/assets/cases/ure/DT-TestMode-Warning-1.png' },
+    ];
+    let stateIdx = 0;
+    let theme = 'light';
+
+    const img       = document.querySelector('.dt-switcher-img');
+    const label     = document.querySelector('.dt-state-label');
+    const prevBtn   = document.querySelector('.dt-arrow-prev');
+    const nextBtn   = document.querySelector('.dt-arrow-next');
+    const themeBtns = document.querySelectorAll('.dt-theme-btn');
+
+    function render() {
+      const s = states[stateIdx];
+      img.src = s[theme];
+      label.textContent = s.label;
+      label.dataset.state = s.state;
+    }
+
+    prevBtn.addEventListener('click', () => {
+      stateIdx = (stateIdx - 1 + states.length) % states.length;
+      render();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      stateIdx = (stateIdx + 1) % states.length;
+      render();
+    });
+
+    themeBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        theme = btn.dataset.theme;
+        themeBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        render();
+      });
+    });
+  })();
 </script>
 
 <script is:inline>
@@ -621,7 +795,7 @@ import Footer from '../../components/Footer.astro';
 
   /* ── Section 00 · What Wasn't Working ──────────────────────── */
   .case-section {
-    margin-bottom: 80px;
+    margin-bottom: 160px;
   }
 
   .s00-label {
@@ -933,6 +1107,284 @@ import Footer from '../../components/Footer.astro';
   /* Mobile — stack BEFORE on top, AFTER below */
   @media (max-width: 768px) {
     .s01-pair {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ── Section 02 · Canvas (Copy) ─────────────────────────────── */
+
+  .s02-label {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-label);
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+    margin-bottom: 32px;
+  }
+
+  .s02-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .s02-frame {
+    background: var(--color-bg-surface);
+    border: 1px solid var(--color-border-default);
+    border-radius: 12px;
+    padding: 16px;
+  }
+
+  .s02-frame-img,
+  .s02-after-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+
+  .s02-frame-caption {
+    margin-top: 14px;
+  }
+
+  .s02-frame-caption-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+
+  .s02-frame-caption-icon {
+    flex-shrink: 0;
+  }
+
+  .s02-frame-caption-title {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-label);
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .s02-frame-caption--problem .s02-frame-caption-icon,
+  .s02-frame-caption--problem .s02-frame-caption-title {
+    color: #E05A5A;
+  }
+
+  .s02-frame-caption--solution .s02-frame-caption-icon,
+  .s02-frame-caption--solution .s02-frame-caption-title {
+    color: var(--color-accent);
+  }
+
+  .s02-frame-caption-body {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-body);
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  .s02-img-toggle {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .s02-img-toggle-btn {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    font-weight: 400;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .s02-img-toggle-btn.active {
+    color: var(--color-text-primary);
+  }
+
+  .s02-img-toggle-sep {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.10em;
+    color: var(--color-text-muted);
+    user-select: none;
+    line-height: 1;
+  }
+
+  .s02-summary-text {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-body);
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin: 32px auto 0;
+    max-width: 640px;
+  }
+
+  .s02-expandable {
+    margin-top: 24px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .s02-exp-toggle {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-label);
+    font-weight: 400;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  .s02-expand-body {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .s02-expand-text {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-body);
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  .s02-expand-subhead {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-label);
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-top: 24px;
+    margin-bottom: 8px;
+  }
+
+  .s02-expand-term {
+    color: var(--color-text-primary);
+  }
+
+  /* ── Test Node image switcher ────────────────────────────────── */
+
+  .dt-switcher {
+    margin-top: 16px;
+    margin-bottom: 4px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .dt-switcher-frame {
+    background: var(--color-bg-surface);
+    border: 1px solid var(--color-border-default);
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  .dt-switcher-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+
+  .dt-switcher-theme-toggle {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+
+  .dt-theme-btn {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    font-weight: 400;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .dt-theme-btn.active {
+    color: var(--color-text-primary);
+  }
+
+  .dt-theme-sep {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.10em;
+    color: var(--color-text-muted);
+    user-select: none;
+    line-height: 1;
+  }
+
+  .dt-switcher-controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 12px;
+  }
+
+  .dt-arrow {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: var(--color-text-muted);
+    line-height: 0;
+    transition: color 150ms ease;
+  }
+
+  .dt-arrow:hover {
+    color: var(--color-text-primary);
+  }
+
+  .dt-state-label {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    font-weight: 400;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    min-width: 90px;
+    text-align: center;
+  }
+
+  .dt-state-label[data-state="test"]    { color: #4A9EFF; }
+  .dt-state-label[data-state="success"] { color: var(--color-accent); }
+  .dt-state-label[data-state="warning"] { color: #E8A44A; }
+
+  @media (max-width: 768px) {
+    .s02-pair {
       grid-template-columns: 1fr;
     }
   }
