@@ -11,7 +11,9 @@
     <!-- Card 01 — Underwriting Rule Engine -->
     <a class="card card--link" href="/case/ure">
       <div class="card-image">
-        <img src="/assets/cases/ure/canvas-after-light.png" alt="" />
+        <div class="card-image-inner">
+          <img src="/assets/cases/ure/canvas-after-light.png" alt="" />
+        </div>
       </div>
       <p class="card-meta">Fintech · B2B SaaS · 0→1</p>
       <h2 class="card-title">Underwriting Rule Engine</h2>
@@ -77,13 +79,18 @@
     aspect-ratio: 45 / 32;
   }
 
-  .card-image img {
+  .card-image-inner {
     position: absolute;
     inset: 24px;
-    width: calc(100% - 48px);
-    height: calc(100% - 48px);
-    object-fit: contain;
     border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .card-image-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
   }
 
   /* ─── Coming soon ───────────────────────────────────── */
