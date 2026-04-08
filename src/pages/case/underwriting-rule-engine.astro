@@ -81,7 +81,6 @@ import Footer from '../../components/Footer.astro';
             </svg>
             Light
           </button>
-          <span class="hero-toggle-sep"> / </span>
           <button class="hero-toggle-btn" data-mode="dark">
             <svg class="hero-toggle-icon" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
@@ -197,7 +196,6 @@ import Footer from '../../components/Footer.astro';
                   </svg>
                   Light
                 </button>
-                <span class="s01-img-toggle-sep"> / </span>
                 <button class="s01-img-toggle-btn" data-mode="dark">
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
@@ -279,7 +277,6 @@ import Footer from '../../components/Footer.astro';
                   </svg>
                   Light
                 </button>
-                <span class="s02-img-toggle-sep"> / </span>
                 <button class="s02-img-toggle-btn" data-mode="dark">
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
@@ -325,7 +322,6 @@ import Footer from '../../components/Footer.astro';
                 </svg>
                 Light
               </button>
-              <span class="dt-theme-sep"> / </span>
               <button class="dt-theme-btn" data-theme="dark">
                 <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
@@ -366,7 +362,6 @@ import Footer from '../../components/Footer.astro';
             </svg>
             Light
           </button>
-          <span class="svf-img-toggle-sep"> / </span>
           <button class="svf-img-toggle-btn" data-mode="dark">
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
@@ -548,35 +543,93 @@ import Footer from '../../components/Footer.astro';
   <Footer />
 
 <script is:inline>
-  const btns = document.querySelectorAll('.hero-toggle-btn');
-  const img  = document.querySelector('.hero-image');
-  const srcs = {
-    light: '/assets/cases/ure/hero-canvas-light.png',
-    dark:  '/assets/cases/ure/hero-canvas-dark.png',
-  };
-  btns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      btns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      img.src = srcs[btn.dataset.mode];
+  (function () {
+    const btns = document.querySelectorAll('.hero-toggle-btn');
+    const img  = document.querySelector('.hero-image');
+    const srcs = {
+      light: '/assets/cases/ure/hero-canvas-light.png',
+      dark:  '/assets/cases/ure/hero-canvas-dark.png',
+    };
+
+    const track = document.querySelector('.hero-toggle');
+    const ind = document.createElement('span');
+    ind.className = 'toggle-indicator';
+    track.insertBefore(ind, track.firstChild);
+
+    function moveInd(btn) {
+      ind.style.width = btn.offsetWidth + 'px';
+      ind.style.transform = 'translateX(' + btn.offsetLeft + 'px)';
+    }
+
+    requestAnimationFrame(function () {
+      const active = track.querySelector('.hero-toggle-btn.active');
+      if (active) {
+        ind.style.transition = 'none';
+        moveInd(active);
+        requestAnimationFrame(function () { ind.style.transition = ''; });
+      }
     });
-  });
+
+    btns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        btns.forEach(function (b) {
+          b.classList.remove('active');
+          const svg = b.querySelector('svg');
+          if (svg) svg.setAttribute('stroke', '#F2EDE4');
+        });
+        btn.classList.add('active');
+        const svg = btn.querySelector('svg');
+        if (svg) svg.setAttribute('stroke', '#D4FF3E');
+        moveInd(btn);
+        img.src = srcs[btn.dataset.mode];
+      });
+    });
+  })();
 </script>
 
 <script is:inline>
-  const s01Btns = document.querySelectorAll('.s01-img-toggle-btn');
-  const s01Img  = document.querySelector('.s01-after-img');
-  const s01Srcs = {
-    light: '/assets/cases/ure/canvas-after-light.png',
-    dark:  '/assets/cases/ure/canvas-after-dark.png',
-  };
-  s01Btns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      s01Btns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      s01Img.src = s01Srcs[btn.dataset.mode];
+  (function () {
+    const s01Btns = document.querySelectorAll('.s01-img-toggle-btn');
+    const s01Img  = document.querySelector('.s01-after-img');
+    const s01Srcs = {
+      light: '/assets/cases/ure/canvas-after-light.png',
+      dark:  '/assets/cases/ure/canvas-after-dark.png',
+    };
+
+    const s01Track = document.querySelector('.s01-img-toggle');
+    const s01Ind = document.createElement('span');
+    s01Ind.className = 'toggle-indicator';
+    s01Track.insertBefore(s01Ind, s01Track.firstChild);
+
+    function moveS01Ind(btn) {
+      s01Ind.style.width = btn.offsetWidth + 'px';
+      s01Ind.style.transform = 'translateX(' + btn.offsetLeft + 'px)';
+    }
+
+    requestAnimationFrame(function () {
+      const active = s01Track.querySelector('.s01-img-toggle-btn.active');
+      if (active) {
+        s01Ind.style.transition = 'none';
+        moveS01Ind(active);
+        requestAnimationFrame(function () { s01Ind.style.transition = ''; });
+      }
     });
-  });
+
+    s01Btns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        s01Btns.forEach(function (b) {
+          b.classList.remove('active');
+          const svg = b.querySelector('svg');
+          if (svg) svg.setAttribute('stroke', '#F2EDE4');
+        });
+        btn.classList.add('active');
+        const svg = btn.querySelector('svg');
+        if (svg) svg.setAttribute('stroke', '#D4FF3E');
+        moveS01Ind(btn);
+        s01Img.src = s01Srcs[btn.dataset.mode];
+      });
+    });
+  })();
 </script>
 
 <script is:inline>
@@ -593,19 +646,48 @@ import Footer from '../../components/Footer.astro';
 </script>
 
 <script is:inline>
-  const s02Btns = document.querySelectorAll('.s02-img-toggle-btn');
-  const s02Img  = document.querySelector('.s02-after-img');
-  const s02Srcs = {
-    light: '/assets/cases/ure/canvas-after-light.png',
-    dark:  '/assets/cases/ure/canvas-after-dark.png',
-  };
-  s02Btns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      s02Btns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      s02Img.src = s02Srcs[btn.dataset.mode];
+  (function () {
+    const s02Btns = document.querySelectorAll('.s02-img-toggle-btn');
+    const s02Img  = document.querySelector('.s02-after-img');
+    const s02Srcs = {
+      light: '/assets/cases/ure/canvas-after-light.png',
+      dark:  '/assets/cases/ure/canvas-after-dark.png',
+    };
+
+    const s02Track = document.querySelector('.s02-img-toggle');
+    const s02Ind = document.createElement('span');
+    s02Ind.className = 'toggle-indicator';
+    s02Track.insertBefore(s02Ind, s02Track.firstChild);
+
+    function moveS02Ind(btn) {
+      s02Ind.style.width = btn.offsetWidth + 'px';
+      s02Ind.style.transform = 'translateX(' + btn.offsetLeft + 'px)';
+    }
+
+    requestAnimationFrame(function () {
+      const active = s02Track.querySelector('.s02-img-toggle-btn.active');
+      if (active) {
+        s02Ind.style.transition = 'none';
+        moveS02Ind(active);
+        requestAnimationFrame(function () { s02Ind.style.transition = ''; });
+      }
     });
-  });
+
+    s02Btns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        s02Btns.forEach(function (b) {
+          b.classList.remove('active');
+          const svg = b.querySelector('svg');
+          if (svg) svg.setAttribute('stroke', '#F2EDE4');
+        });
+        btn.classList.add('active');
+        const svg = btn.querySelector('svg');
+        if (svg) svg.setAttribute('stroke', '#D4FF3E');
+        moveS02Ind(btn);
+        s02Img.src = s02Srcs[btn.dataset.mode];
+      });
+    });
+  })();
 </script>
 
 
@@ -625,6 +707,25 @@ import Footer from '../../components/Footer.astro';
     const nextBtn   = document.querySelector('.dt-arrow-next');
     const themeBtns = document.querySelectorAll('.dt-theme-btn');
 
+    const dtTrack = document.querySelector('.dt-switcher-theme-toggle');
+    const dtInd = document.createElement('span');
+    dtInd.className = 'toggle-indicator';
+    dtTrack.insertBefore(dtInd, dtTrack.firstChild);
+
+    function moveDtInd(btn) {
+      dtInd.style.width = btn.offsetWidth + 'px';
+      dtInd.style.transform = 'translateX(' + btn.offsetLeft + 'px)';
+    }
+
+    requestAnimationFrame(function () {
+      const active = dtTrack.querySelector('.dt-theme-btn.active');
+      if (active) {
+        dtInd.style.transition = 'none';
+        moveDtInd(active);
+        requestAnimationFrame(function () { dtInd.style.transition = ''; });
+      }
+    });
+
     function render() {
       const s = states[stateIdx];
       img.src = s[theme];
@@ -642,11 +743,18 @@ import Footer from '../../components/Footer.astro';
       render();
     });
 
-    themeBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
+    themeBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
         theme = btn.dataset.theme;
-        themeBtns.forEach(b => b.classList.remove('active'));
+        themeBtns.forEach(function (b) {
+          b.classList.remove('active');
+          const svg = b.querySelector('svg');
+          if (svg) svg.setAttribute('stroke', '#F2EDE4');
+        });
         btn.classList.add('active');
+        const svg = btn.querySelector('svg');
+        if (svg) svg.setAttribute('stroke', '#D4FF3E');
+        moveDtInd(btn);
         render();
       });
     });
@@ -669,19 +777,48 @@ import Footer from '../../components/Footer.astro';
 </script>
 
 <script is:inline>
-  const svfBtns = document.querySelectorAll('.svf-img-toggle-btn');
-  const svfImg  = document.querySelector('.svf-frame-img');
-  const svfSrcs = {
-    light: '/assets/cases/ure/VS-DataType-Variable-Light.png',
-    dark:  '/assets/cases/ure/VS-DataTypeSelection-Dark.png',
-  };
-  svfBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      svfBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      svfImg.src = svfSrcs[btn.dataset.mode];
+  (function () {
+    const svfBtns = document.querySelectorAll('.svf-img-toggle-btn');
+    const svfImg  = document.querySelector('.svf-frame-img');
+    const svfSrcs = {
+      light: '/assets/cases/ure/VS-DataType-Variable-Light.png',
+      dark:  '/assets/cases/ure/VS-DataTypeSelection-Dark.png',
+    };
+
+    const svfTrack = document.querySelector('.svf-img-toggle');
+    const svfInd = document.createElement('span');
+    svfInd.className = 'toggle-indicator';
+    svfTrack.insertBefore(svfInd, svfTrack.firstChild);
+
+    function moveSvfInd(btn) {
+      svfInd.style.width = btn.offsetWidth + 'px';
+      svfInd.style.transform = 'translateX(' + btn.offsetLeft + 'px)';
+    }
+
+    requestAnimationFrame(function () {
+      const active = svfTrack.querySelector('.svf-img-toggle-btn.active');
+      if (active) {
+        svfInd.style.transition = 'none';
+        moveSvfInd(active);
+        requestAnimationFrame(function () { svfInd.style.transition = ''; });
+      }
     });
-  });
+
+    svfBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        svfBtns.forEach(function (b) {
+          b.classList.remove('active');
+          const svg = b.querySelector('svg');
+          if (svg) svg.setAttribute('stroke', '#F2EDE4');
+        });
+        btn.classList.add('active');
+        const svg = btn.querySelector('svg');
+        if (svg) svg.setAttribute('stroke', '#D4FF3E');
+        moveSvfInd(btn);
+        svfImg.src = svfSrcs[btn.dataset.mode];
+      });
+    });
+  })();
 </script>
 
 <script is:inline>
@@ -859,43 +996,73 @@ import Footer from '../../components/Footer.astro';
 
   /* ── Hero toggle ─────────────────────────────────────────────── */
   .hero-toggle {
+    position: relative;
+    background: #0C0B09;
+    border: 1px solid #2A2820;
+    border-radius: 8px;
+    padding: 2px;
     display: flex;
+    width: fit-content;
     align-items: center;
     margin-top: 12px;
   }
 
+  /* Shared sliding indicator for all toggle tracks — :global so JS-created elements get it */
+  :global(.toggle-indicator) {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: calc(100% - 4px);
+    background: #161510;
+    border: 1px solid #2A2820;
+    border-radius: 6px;
+    pointer-events: none;
+    z-index: 0;
+    transition: transform 150ms ease, width 150ms ease;
+  }
+
   .hero-toggle-btn {
-    font-family: var(--font-mono);
-    font-size: 0.625rem; /* 10px */
-    font-weight: 400;
+    position: relative;
+    z-index: 1;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
     letter-spacing: 0.10em;
-    text-transform: uppercase;
-    color: var(--color-text-muted);
-    background: none;
-    border: none;
-    padding: 0;
+    padding: 5px 12px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    background: transparent;
     cursor: pointer;
-    line-height: 1;
+    transition: color 120ms ease;
+    color: #F2EDE4;
     display: flex;
     align-items: center;
     gap: 5px;
+    line-height: 1;
   }
 
   .hero-toggle-icon {
     flex-shrink: 0;
   }
 
-  .hero-toggle-btn.active {
-    color: var(--color-text-primary);
+  .hero-toggle-btn svg {
+    stroke: #F2EDE4;
+    transition: stroke 120ms ease;
   }
 
-  .hero-toggle-sep {
-    font-family: var(--font-mono);
-    font-size: 0.625rem; /* 10px */
-    letter-spacing: 0.10em;
-    color: var(--color-text-muted);
-    line-height: 1;
-    user-select: none;
+  .hero-toggle-btn.active {
+    color: #D4FF3E;
+  }
+
+  .hero-toggle-btn.active svg {
+    stroke: #D4FF3E;
+  }
+
+  .hero-toggle-btn:not(.active):hover {
+    color: #D4FF3E;
+  }
+
+  .hero-toggle-btn:not(.active):hover svg {
+    stroke: #D4FF3E;
   }
 
   /* ── Section 00 · What Wasn't Working ──────────────────────── */
@@ -1124,39 +1291,55 @@ import Footer from '../../components/Footer.astro';
   }
 
   .s01-img-toggle {
+    position: relative;
+    background: #0C0B09;
+    border: 1px solid #2A2820;
+    border-radius: 8px;
+    padding: 2px;
     display: flex;
+    width: fit-content;
     align-items: center;
     margin-top: 10px;
   }
 
   .s01-img-toggle-btn {
-    font-family: var(--font-mono);
-    font-size: 0.625rem; /* 10px */
-    font-weight: 400;
+    position: relative;
+    z-index: 1;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
     letter-spacing: 0.10em;
-    text-transform: uppercase;
-    color: var(--color-text-muted);
-    background: none;
-    border: none;
-    padding: 0;
+    padding: 5px 12px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    background: transparent;
     cursor: pointer;
-    line-height: 1;
+    transition: color 120ms ease;
+    color: #F2EDE4;
     display: flex;
     align-items: center;
     gap: 5px;
+    line-height: 1;
+  }
+
+  .s01-img-toggle-btn svg {
+    stroke: #F2EDE4;
+    transition: stroke 120ms ease;
   }
 
   .s01-img-toggle-btn.active {
-    color: var(--color-text-primary);
+    color: #D4FF3E;
   }
 
-  .s01-img-toggle-sep {
-    font-family: var(--font-mono);
-    font-size: 0.625rem; /* 10px */
-    letter-spacing: 0.10em;
-    color: var(--color-text-muted);
-    user-select: none;
-    line-height: 1;
+  .s01-img-toggle-btn.active svg {
+    stroke: #D4FF3E;
+  }
+
+  .s01-img-toggle-btn:not(.active):hover {
+    color: #D4FF3E;
+  }
+
+  .s01-img-toggle-btn:not(.active):hover svg {
+    stroke: #D4FF3E;
   }
 
 
@@ -1304,39 +1487,55 @@ import Footer from '../../components/Footer.astro';
   }
 
   .s02-img-toggle {
+    position: relative;
+    background: #0C0B09;
+    border: 1px solid #2A2820;
+    border-radius: 8px;
+    padding: 2px;
     display: flex;
+    width: fit-content;
     align-items: center;
     margin-top: 10px;
   }
 
   .s02-img-toggle-btn {
-    font-family: var(--font-mono);
-    font-size: 0.625rem;
-    font-weight: 400;
+    position: relative;
+    z-index: 1;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
     letter-spacing: 0.10em;
-    text-transform: uppercase;
-    color: var(--color-text-muted);
-    background: none;
-    border: none;
-    padding: 0;
+    padding: 5px 12px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    background: transparent;
     cursor: pointer;
-    line-height: 1;
+    transition: color 120ms ease;
+    color: #F2EDE4;
     display: flex;
     align-items: center;
     gap: 5px;
+    line-height: 1;
+  }
+
+  .s02-img-toggle-btn svg {
+    stroke: #F2EDE4;
+    transition: stroke 120ms ease;
   }
 
   .s02-img-toggle-btn.active {
-    color: var(--color-text-primary);
+    color: #D4FF3E;
   }
 
-  .s02-img-toggle-sep {
-    font-family: var(--font-mono);
-    font-size: 0.625rem;
-    letter-spacing: 0.10em;
-    color: var(--color-text-muted);
-    user-select: none;
-    line-height: 1;
+  .s02-img-toggle-btn.active svg {
+    stroke: #D4FF3E;
+  }
+
+  .s02-img-toggle-btn:not(.active):hover {
+    color: #D4FF3E;
+  }
+
+  .s02-img-toggle-btn:not(.active):hover svg {
+    stroke: #D4FF3E;
   }
 
   .s02-summary-text {
@@ -1428,39 +1627,55 @@ import Footer from '../../components/Footer.astro';
   }
 
   .dt-switcher-theme-toggle {
+    position: relative;
+    background: #0C0B09;
+    border: 1px solid #2A2820;
+    border-radius: 8px;
+    padding: 2px;
     display: flex;
+    width: fit-content;
     align-items: center;
     margin-left: auto;
   }
 
   .dt-theme-btn {
-    font-family: var(--font-mono);
-    font-size: 0.625rem;
-    font-weight: 400;
+    position: relative;
+    z-index: 1;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
     letter-spacing: 0.10em;
-    text-transform: uppercase;
-    color: var(--color-text-muted);
-    background: none;
-    border: none;
-    padding: 0;
+    padding: 5px 12px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    background: transparent;
     cursor: pointer;
-    line-height: 1;
+    transition: color 120ms ease;
+    color: #F2EDE4;
     display: flex;
     align-items: center;
     gap: 5px;
+    line-height: 1;
+  }
+
+  .dt-theme-btn svg {
+    stroke: #F2EDE4;
+    transition: stroke 120ms ease;
   }
 
   .dt-theme-btn.active {
-    color: var(--color-text-primary);
+    color: #D4FF3E;
   }
 
-  .dt-theme-sep {
-    font-family: var(--font-mono);
-    font-size: 0.625rem;
-    letter-spacing: 0.10em;
-    color: var(--color-text-muted);
-    user-select: none;
-    line-height: 1;
+  .dt-theme-btn.active svg {
+    stroke: #D4FF3E;
+  }
+
+  .dt-theme-btn:not(.active):hover {
+    color: #D4FF3E;
+  }
+
+  .dt-theme-btn:not(.active):hover svg {
+    stroke: #D4FF3E;
   }
 
   .dt-switcher-controls {
@@ -1538,42 +1753,57 @@ import Footer from '../../components/Footer.astro';
   }
 
   .svf-img-toggle {
+    position: relative;
+    background: #0C0B09;
+    border: 1px solid #2A2820;
+    border-radius: 8px;
+    padding: 2px;
     display: flex;
+    width: fit-content;
     align-items: center;
-    max-width: 640px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 12px;
   }
 
   .svf-img-toggle-btn {
-    font-family: var(--font-mono);
-    font-size: 0.625rem;
-    font-weight: 400;
+    position: relative;
+    z-index: 1;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
     letter-spacing: 0.10em;
-    text-transform: uppercase;
-    color: var(--color-text-muted);
-    background: none;
-    border: none;
-    padding: 0;
+    padding: 5px 12px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    background: transparent;
     cursor: pointer;
-    line-height: 1;
+    transition: color 120ms ease;
+    color: #F2EDE4;
     display: flex;
     align-items: center;
     gap: 5px;
+    line-height: 1;
+  }
+
+  .svf-img-toggle-btn svg {
+    stroke: #F2EDE4;
+    transition: stroke 120ms ease;
   }
 
   .svf-img-toggle-btn.active {
-    color: var(--color-text-primary);
+    color: #D4FF3E;
   }
 
-  .svf-img-toggle-sep {
-    font-family: var(--font-mono);
-    font-size: 0.625rem;
-    letter-spacing: 0.10em;
-    color: var(--color-text-muted);
-    user-select: none;
-    line-height: 1;
+  .svf-img-toggle-btn.active svg {
+    stroke: #D4FF3E;
+  }
+
+  .svf-img-toggle-btn:not(.active):hover {
+    color: #D4FF3E;
+  }
+
+  .svf-img-toggle-btn:not(.active):hover svg {
+    stroke: #D4FF3E;
   }
 
   .svf-summary {
