@@ -1,0 +1,108 @@
+---
+// About section — SPEC-design-v1
+---
+
+<section class="about">
+  <div class="inner">
+
+    <div class="photo-col">
+      <img
+        class="photo"
+        src="/assets/cases/ure/photo.png"
+        alt="Igor Bielov"
+      />
+    </div>
+
+    <div class="text-col">
+      <p class="label">About</p>
+      <p class="body">
+        Hi, I'm Igor — a product designer with 7+ years
+        of experience, working remotely. I care about the
+        whole picture: not just whether something is usable,
+        but whether it makes sense for the business behind it.
+        That means thinking about how users first encounter
+        a product, what keeps them coming back, and what makes
+        the business viable enough to keep improving it.
+        A product that works for users and for the people
+        building it is always the goal.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .about {
+    max-width: 1200px;
+    margin: 160px auto 160px;
+    padding: 0 40px;
+  }
+
+  .inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 64px;
+    width: 824px;
+    margin: 0 auto;
+  }
+
+  /* ─── Photo ─────────────────────────────────────────── */
+  .photo-col {
+    flex-shrink: 0;
+    background: var(--color-bg-surface);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .photo {
+    display: block;
+    width: 280px;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+  }
+
+  /* ─── Text ──────────────────────────────────────────── */
+  .text-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 480px;
+    flex-shrink: 0;
+  }
+
+  .label {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    color: var(--color-text-primary);
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .body {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    line-height: 1.65;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  @media (max-width: 640px) {
+    .about {
+      padding: 0 20px;
+      margin: 120px auto 120px;
+    }
+
+    .inner {
+      gap: 32px;
+    }
+
+    .photo {
+      width: 120px;
+    }
+  }
+</style>
