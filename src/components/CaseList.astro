@@ -1,34 +1,35 @@
 ---
-// Case study list — SPEC-content-v1 + SPEC-design-v1
+// Case study list — grid layout
 ---
 
 <section class="case-list" id="work">
 
-  <div class="divider"></div>
+  <p class="section-label">WORK</p>
 
-  <!-- Row 01 — Underwriting Rule Engine -->
-  <a class="row row--link" href="/case/underwriting-rule-engine">
-    <span class="index">01</span>
-    <div class="content">
-      <p class="meta">Fintech · B2B SaaS · 0→1</p>
-      <h2 class="title">Underwriting Rule Engine</h2>
-      <p class="description">No-code platform for risk managers to build and manage business rules without engineering.</p>
-      <p class="metric" aria-hidden="true">↳ Impact metric · coming soon</p>
+  <div class="grid">
+
+    <!-- Card 01 — Underwriting Rule Engine -->
+    <a class="card card--link" href="/case/ure">
+      <div class="card-image">
+        <img src="/assets/cases/ure/canvas-after-light.png" alt="" />
+      </div>
+      <p class="card-meta">Fintech · B2B SaaS · 0→1</p>
+      <h2 class="card-title">Underwriting Rule Engine</h2>
+      <p class="card-description">No-code platform for risk managers to build and manage business rules without engineering.</p>
+      <p class="card-metric" aria-hidden="true">↳ Rule engine rebuilt · Solo · AI-assisted process</p>
+    </a>
+
+    <!-- Card 02 — Loan Management System -->
+    <div class="card card--muted">
+      <div class="card-image card-image--empty">
+        <p class="card-coming-soon">Coming Soon</p>
+      </div>
+      <p class="card-meta">Fintech · B2B SaaS · 0→1</p>
+      <h2 class="card-title card-title--muted">Loan Management System</h2>
+      <p class="card-description">Core banking interface for managing loan lifecycle — part of the same fintech ecosystem as the Underwriting Rule Engine.</p>
     </div>
-    <span class="arrow" aria-hidden="true">↗</span>
-  </a>
 
-  <div class="divider"></div>
-
-  <!-- Row 02 — Coming Soon -->
-  <div class="row row--muted">
-    <span class="index">02</span>
-    <div class="content">
-      <p class="meta coming-soon">Coming Soon</p>
-    </div>
   </div>
-
-  <div class="divider"></div>
 
 </section>
 
@@ -39,98 +40,104 @@
     padding: 0 40px;
   }
 
-  .divider {
-    height: 1px;
-    background-color: var(--color-border-default);
-  }
-
-  /* ─── Row base ─────────────────────────────────────── */
-  .row {
-    display: flex;
-    align-items: flex-start;
-    gap: 32px;
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .row--link {
-    cursor: pointer;
-    padding: 32px 24px;
-    background-color: transparent;
-    transition: background-color 150ms ease;
-  }
-
-  .row--link:hover {
-    background-color: var(--color-bg-subtle);
-  }
-
-  .row--muted {
-    padding: 32px 24px;
-  }
-
-  /* ─── Index ────────────────────────────────────────── */
-  .index {
+  .section-label {
     font-family: var(--font-mono);
-    font-size: var(--font-size-meta);
+    font-size: 13px;
     font-weight: 400;
-    letter-spacing: var(--letter-spacing-meta);
-    color: var(--color-text-faint);
-    min-width: 24px;
-    padding-top: 2px;
-    flex-shrink: 0;
-  }
-
-  /* ─── Content ──────────────────────────────────────── */
-  .content {
-    flex: 1;
-  }
-
-  .meta {
-    font-family: var(--font-mono);
-    font-size: var(--font-size-label);
-    font-weight: 400;
-    letter-spacing: var(--letter-spacing-label);
+    letter-spacing: 0.14em;
     color: var(--color-text-muted);
     text-transform: uppercase;
-    margin: 0 0 12px;
-    transition: color 150ms ease;
+    margin: 0 0 16px;
   }
 
-  .row--link:hover .meta {
-    color: var(--color-accent);
+  /* ─── Grid ─────────────────────────────────────────── */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
   }
 
-  .coming-soon {
+  /* ─── Card base ─────────────────────────────────────── */
+  .card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  /* ─── Image container ───────────────────────────────── */
+  .card-image {
+    background: var(--color-bg-surface);
+    border: 1px solid var(--color-border-default);
+    border-radius: 12px;
+    padding: 24px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 16 / 10;
+  }
+
+  .card-image img {
+    position: absolute;
+    inset: 24px;
+    width: calc(100% - 48px);
+    height: calc(100% - 48px);
+    object-fit: contain;
+    border-radius: 8px;
+  }
+
+  /* ─── Coming soon ───────────────────────────────────── */
+  .card-coming-soon {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
     margin: 0;
-    padding-top: 2px;
   }
 
-  .title {
+  /* ─── Meta ──────────────────────────────────────────── */
+  .card-meta {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.10em;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    margin: 16px 0 0;
+  }
+
+  /* ─── Title ─────────────────────────────────────────── */
+  .card-title {
     font-family: var(--font-display);
-    font-size: 2.25rem; /* 36px */
-    font-weight: 800;
-    letter-spacing: var(--letter-spacing-title);
-    line-height: 1.0;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
     color: var(--color-text-primary);
-    margin: 0 0 12px;
+    margin: 4px 0 0;
   }
 
-  .description {
+  .card-title--muted {
+    color: var(--color-text-muted);
+  }
+
+  /* ─── Description ───────────────────────────────────── */
+  .card-description {
     font-family: var(--font-mono);
-    font-size: 0.8125rem; /* 13px */
+    font-size: 11px;
     font-weight: 400;
-    letter-spacing: var(--letter-spacing-body);
-    line-height: var(--line-height-body);
+    line-height: 1.6;
     color: var(--color-text-secondary);
-    margin: 0;
-    max-width: 560px;
+    margin: 8px 0 0;
   }
 
-  .metric {
+  /* ─── Hover metric ──────────────────────────────────── */
+  .card-metric {
     font-family: var(--font-mono);
-    font-size: var(--font-size-body);
+    font-size: 11px;
     font-weight: 400;
-    letter-spacing: var(--letter-spacing-body);
     color: var(--color-accent);
     margin: 8px 0 0;
     opacity: 0;
@@ -138,29 +145,17 @@
     transition: opacity 150ms ease, transform 150ms ease;
   }
 
-  .row--link:hover .metric {
+  .card--link:hover .card-metric {
     opacity: 1;
     transform: translateY(0);
-  }
-
-  /* ─── Arrow ────────────────────────────────────────── */
-  .arrow {
-    font-family: var(--font-mono);
-    font-size: 16px;
-    color: var(--color-text-muted);
-    flex-shrink: 0;
-    padding-top: 2px;
-    transition: color 150ms ease, font-size 150ms ease;
-  }
-
-  .row--link:hover .arrow {
-    font-size: 24px;
-    color: var(--color-accent);
   }
 
   @media (max-width: 640px) {
     .case-list {
       padding: 0 20px;
+    }
+    .grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>

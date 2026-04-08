@@ -9,13 +9,17 @@ const { showBack = false } = Astro.props;
 <header class="nav">
   <div class="nav-left">
     <a href="/" class="nav-name">Igor Bielov</a>
+    <div class="availability">
+      <span class="availability-dot"></span>
+      <span class="availability-label">Available for work</span>
+    </div>
     {showBack && (
       <a href="/" class="nav-link">← Work</a>
     )}
   </div>
   <nav class="nav-links">
     <a href="#work" class="nav-link">Work</a>
-    <a href="/cv.pdf" class="nav-link" target="_blank" rel="noopener noreferrer">CV&nbsp;↗</a>
+    <a href="https://drive.google.com/file/d/1m0SjCIIHgHjV8kcxTekH04AHTnamBYki/view?usp=drive_link" class="nav-link" target="_blank" rel="noopener noreferrer">CV&nbsp;↗</a>
   </nav>
 </header>
 
@@ -33,6 +37,36 @@ const { showBack = false } = Astro.props;
     display: flex;
     align-items: center;
     gap: 32px;
+  }
+
+  .availability {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: calc(24px - 32px); /* 24px from name, offset the 32px nav-left gap */
+  }
+
+  .availability-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #4ADE80;
+    flex-shrink: 0;
+    animation: pulse-out 1.2s ease-in-out infinite;
+  }
+
+  .availability-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.10em;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+  }
+
+  @keyframes pulse-out {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    8%        { opacity: 1;   transform: scale(1.25); }
   }
 
   .nav-name {
