@@ -30,11 +30,11 @@
   /* Font sizes */
   --font-size-display: 3.75rem;                      /* 60px */
   --font-size-title:   clamp(2rem, 3.5vw, 2.5rem);  /* 32–40px */
-  --font-size-label:   0.625rem;                     /* 10px */
-  --font-size-body:    0.8125rem;                    /* 13px */
-  --font-size-meta:    0.625rem;                     /* 10px */
+  --font-size-label:   0.9375rem;                    /* 15px */
+  --font-size-body:    0.9375rem;                    /* 15px */
+  --font-size-meta:    0.9375rem;                    /* 15px */
   --font-size-tag:     0.5625rem;                    /* 9px  */
-  --font-size-nav:     0.8125rem;                    /* 13px */
+  --font-size-nav:     0.9375rem;                    /* 15px */
 
   /* Letter spacing */
   --letter-spacing-display: -0.03em; /* confirmed */
