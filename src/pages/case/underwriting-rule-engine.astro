@@ -50,7 +50,7 @@ import Footer from '../../components/Footer.astro';
         <!-- 6. THE PROBLEM block -->
         <div class="panel-info-block">
           <span class="panel-info-label">The Problem</span>
-          <p class="panel-info-body">Risk managers define the logic that approves, rejects, or flags loan applications. A wrong rule that reaches production isn't a UX problem — it's a compliance event. The product needed to give them control without requiring engineering to make a change.</p>
+          <p class="panel-info-body">Every loan approval or rejection runs through a rule a risk manager wrote. A wrong rule doesn't create a support ticket — it means real people get incorrect decisions on their applications. The product needed to put that logic in the hands of the people responsible for it, without requiring engineering every time something had to change.</p>
         </div>
 
         <!-- 7. Divider -->
@@ -59,7 +59,7 @@ import Footer from '../../components/Footer.astro';
         <!-- 8. THE USER block -->
         <div class="panel-info-block">
           <span class="panel-info-label">The User</span>
-          <p class="panel-info-body">Finance and compliance professionals. Think in conditions and outcomes. Need certainty before they act. Cannot afford mistakes in production.</p>
+          <p class="panel-info-body">Finance professionals, not engineers. They work from business logic — conditions and outcomes. They need certainty before they act. Their mistakes aren't caught in testing. They're caught on a real application, after the fact.</p>
         </div>
 
       </div>
@@ -103,21 +103,21 @@ import Footer from '../../components/Footer.astro';
             <span class="s00-card-index">01</span>
             <div class="s00-card-rule"></div>
             <h3 class="s00-card-title">Navigation without hierarchy</h3>
-            <p class="s00-card-body">Flows, platform nav, and object management all mixed in one sidebar. No structure, no clear mental model for the user. Header navigation used space and didn't solve any problems.</p>
+            <p class="s00-card-body">Everything in one list — active work, reference tools, settings, primary actions. No hierarchy, no separation. The user had to scan everything just to orient themselves before starting.</p>
           </div>
 
           <div class="s00-card">
             <span class="s00-card-index">02</span>
             <div class="s00-card-rule"></div>
             <h3 class="s00-card-title">Objects without feedback</h3>
-            <p class="s00-card-body">The system failed to provide visual feedback on whether the object is functional. No way to test a rule before deploying to production. Silent conflicts between elements of the object.</p>
+            <p class="s00-card-body">No validation before committing. No summary of what you configured. If two conditions contradicted each other, nothing flagged it — the rule just ran wrong on real applications.</p>
           </div>
 
           <div class="s00-card">
             <span class="s00-card-index">03</span>
             <div class="s00-card-rule"></div>
             <h3 class="s00-card-title">Outdated component library &amp; UI</h3>
-            <p class="s00-card-body">MUI base with no tokens, no dark mode, mixed icon styles. Every new screen required manual decisions from scratch. UI was strictly dictated by stakeholders.</p>
+            <p class="s00-card-body">The visual direction was strictly defined by the client — heavy icons, colored action bars, dense layout. The component library had no dark mode and no shared token system, so every new screen required manual styling decisions. The result looked like a generic enterprise admin panel.</p>
           </div>
 
         </div>
@@ -130,8 +130,9 @@ import Footer from '../../components/Footer.astro';
             </svg>
             <span class="s00-problem-label">PROBLEM</span>
           </div>
-          <p class="s00-problem-body">The product was built 0→1 under real constraints. After shipping, I audited what we'd built. Three structural problems worth fixing.</p>
+          <p class="s00-problem-body">The original was built fast under real constraints. After shipping I had distance I didn't have during the build. Three problems — not UI issues, but trust failures in a system where a wrong rule reaches real people.</p>
           <p class="s00-problem-body">The first problem drove the Canvas redesign. The second drove the Decision Table redesign. The third — a visual language strictly dictated by the client — is what the full rebuild addressed.</p>
+          <p class="s00-problem-body">Across all three — the goal was the same: give users visibility and control over their actions before those actions affect live business flows.</p>
         </div>
 
         <div class="s00-expandable">
@@ -168,7 +169,7 @@ import Footer from '../../components/Footer.astro';
                 </svg>
                 <span class="s01-frame-caption-title">Problem</span>
               </div>
-              <p class="s01-frame-caption-body">Navigation without hierarchy. Flow management and system utilities shared one sidebar — no separation between active work and platform tools. A risk manager's core question on entry: 'am I in production or draft?' The original gave no clear answer.</p>
+              <p class="s01-frame-caption-body">Two different user modes collapsed into one list — active work and occasional reference, no hierarchy between them. Before touching anything, the user had to figure out where they were.</p>
             </div>
           </div>
 
@@ -187,7 +188,7 @@ import Footer from '../../components/Footer.astro';
                 </svg>
                 <span class="s01-frame-caption-title">Solution</span>
               </div>
-              <p class="s01-frame-caption-body">Two-zone sidebar — flow states at top, platform tools anchored at the bottom. The safety check answered before the risk manager touches a node.</p>
+              <p class="s01-frame-caption-body">The sidebar is now split into two explicit zones — flows at the top, global platform features at the bottom. Each zone has a clear label.</p>
               <div class="s01-img-toggle">
                 <button class="s01-img-toggle-btn active" data-mode="light">
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -211,7 +212,7 @@ import Footer from '../../components/Footer.astro';
 
         <!-- Summary text -->
         <div class="s01-expand-subhead" style="max-width:640px;margin:32px auto 0;">THE OUTCOME</div>
-        <p class="s01-summary-text" style="margin-top:12px;">The original sidebar mixed flow management and platform utilities in one undifferentiated list — same visual weight, no hierarchy. You had to scan everything to find anything. The redesign separates the two explicitly: active flows at the top, platform tools anchored at the bottom. The sidebar now reads in one pass.</p>
+        <p class="s01-summary-text" style="margin-top:12px;">Primary work context and system-level tools are now in separate labeled zones. The user sees what they need for the current task immediately. Navigation is organized by how each part is used, not just listed by what it is.</p>
 
         <!-- Expandable -->
         <div class="s01-expandable">
@@ -220,7 +221,7 @@ import Footer from '../../components/Footer.astro';
             <div class="s01-expand-subhead">THE PROPOSED FIX AND BLOCKERS</div>
             <p class="s01-expand-text">The most direct fix was moving platform utilities into the header — global tools belong in global navigation. The client refused because other products in the portfolio used the header for system-wide notifications (Follow-ups, Comments, Alerts), and they wanted consistency across all eight products. But Underwriting had none of those features planned even in post-MVP state, we couldn't reach agreement.</p>
             <div class="s01-expand-subhead">THE REDESIGN</div>
-            <p class="s01-expand-text">Rather than fight a blocked path, the redesign introduces two explicit zones within the sidebar itself. Flow states sit at the top — Production Flow, Draft Flows, the active flow tree. Platform tools anchor to the bottom under a PLATFORM label. Figma, Linear, and VS Code all use this separation for the same reason: active work and occasional reference are different modes of use. Keeping them visually distinct removes one more thing the user has to figure out before they start working.</p>
+            <p class="s01-expand-text">Rather than fight a blocked path, the redesign introduces two explicit zones within the sidebar itself. Flow states sit at the top — Production Flow, Draft Flows, the active flow tree. Platform tools anchor to the bottom under a PLATFORM label. The pattern exists in Figma, Linear, and VS Code for the same reason: active work and occasional reference are different modes, and the sidebar reflects that.</p>
           </div>
         </div>
 
@@ -249,7 +250,7 @@ import Footer from '../../components/Footer.astro';
                 </svg>
                 <span class="s02-frame-caption-title">Problem</span>
               </div>
-              <p class="s02-frame-caption-body">A Decision Table is one of the system's core objects — risk managers use it to define business logic as a set of conditions and outcomes. The original had no way to validate a rule before committing it. You configured conditions, hit Save, and hoped the logic was right. A wrong rule reaching production isn't a UX problem — it's a compliance event.</p>
+              <p class="s02-frame-caption-body">No way to verify work before committing it. You configured the logic, hit Save, and it was live. Wrong rules reached real applications.</p>
             </div>
           </div>
 
@@ -292,10 +293,11 @@ import Footer from '../../components/Footer.astro';
 
         <!-- Summary text -->
         <div class="s02-expand-subhead" style="max-width:640px;margin:32px auto 0;color:var(--color-text-primary);">THE OUTCOME</div>
-        <p class="s02-summary-text" style="margin-top:12px;">The original gave you no feedback loop. You built a rule, saved it, and found out if it was wrong in production. Three changes closed that gap: Test Node lets you validate before committing, Rule Summary reflects the rule back in plain language, Health Status surfaces system state passively. A risk manager can now finish a rule and know it's correct before it goes live.</p>
+        <p class="s02-summary-text" style="margin-top:12px;">Three changes address the same gap. Test Node lets the user validate logic before committing it. Rule Summary shows a plain-language readback of what they configured, so they can verify it without reconstructing it from raw values. Health Status surfaces conflicts passively. The user can now finish configuring and know it's correct before it's live.</p>
+        <p class="s02-summary-text" style="margin-top:12px;">Before these changes, the system trusted the user to catch their own mistakes. Now the interface carries that responsibility.</p>
 
         <div class="s02-expand-subhead" style="max-width:640px;margin:32px auto 0;color:var(--color-text-primary);">THREE CHANGES, ONE NEED: CONFIDENCE BEFORE ACTION</div>
-        <p class="s02-summary-text" style="margin-top:12px;"><span class="s02-expand-term">Test Node</span> — added alongside Save Node. Run the rule against test inputs, see the result, then commit. Building flows myself, I found it genuinely hard to know whether a complex rule was correct without some form of simulation.</p>
+        <p class="s02-summary-text" style="margin-top:12px;"><span class="s02-expand-term">Test Node</span> — Placed as a co-primary action next to Save, not buried in a menu. The point is that validation has to be as easy as saving, or it gets skipped.</p>
 
         <!-- Test Node image switcher -->
         <div class="dt-switcher">
@@ -332,8 +334,8 @@ import Footer from '../../components/Footer.astro';
           </div>
         </div>
 
-        <p class="s02-summary-text" style="margin-top:24px;"><span class="s02-expand-term">Rule Summary</span> — a plain-language translation of the configured rule, live in the sidebar: "If CreditScore ≥ 700 and LoanAmount ≤ 50,000 → Approved. Otherwise → Rejected." The interface reflects the rule back in the language risk managers already think in, rather than asking them to reconstruct it from table cells.</p>
-        <p class="s02-summary-text" style="margin-top:12px;"><span class="s02-expand-term">Health Status</span> — object-level system state in the sidebar: functioning, conflict, draft. No navigation required. The information is there without the user having to go looking.</p>
+        <p class="s02-summary-text" style="margin-top:24px;"><span class="s02-expand-term">Rule Summary</span> — A plain-language readback of the configured rule in the sidebar. Risk managers think in conditions and outcomes — the interface should speak that language back to them, not make them reconstruct it from table cells.</p>
+        <p class="s02-summary-text" style="margin-top:12px;"><span class="s02-expand-term">Health Status</span> — System state surfaced passively. If something is broken or in conflict, it's visible without having to navigate away from the work.</p>
 
       </section>
 
@@ -390,7 +392,7 @@ import Footer from '../../components/Footer.astro';
               </svg>
               <span class="svf-summary-label">SOLUTION</span>
             </div>
-            <p class="svf-summary-body">The Condition Builder turns each line of business logic into a structured expression. The interface handles the mapping. The risk manager never leaves their language.</p>
+            <p class="svf-summary-body">The Condition Builder now shows a live representation of the expression as the user builds it — before it's committed.</p>
           </div>
         </div>
 
@@ -457,11 +459,11 @@ import Footer from '../../components/Footer.astro';
         <div class="s03-summary">
           <div class="s03-summary-block">
             <span class="s03-summary-label">PROBLEM</span>
-            <p class="s03-summary-body">Token architecture, component library, full flows in light and dark — a process that normally takes weeks. Built solo, in days, using Claude, Codex, and Figma MCP.</p>
+            <p class="s03-summary-body">I used AI tooling to rebuild a complex system I'd already shipped — solo. It worked, and it also failed in specific ways: 116 tokens unusable because I underinvested in structure upfront, credits burned in three days by choosing the wrong model for the wrong tasks.</p>
           </div>
           <div class="s03-summary-block">
             <span class="s03-summary-label">RESULT</span>
-            <p class="s03-summary-body">The manual labor was replaced. The judgment wasn't.</p>
+            <p class="s03-summary-body">The three lessons here came from those failures, not from the parts that went right.</p>
           </div>
         </div>
 
@@ -470,7 +472,7 @@ import Footer from '../../components/Footer.astro';
           <button class="s03-exp-toggle" aria-expanded="false">+ FULL REASONING</button>
           <div class="s03-expand-body" hidden>
 
-            <p class="s03-expand-text">This redesign wasn't a client brief. It was a deliberate experiment: take a complex system I'd shipped, apply the critical distance that only comes after launch, and use AI tooling to compress a process that would normally take weeks into days.</p>
+            <p class="s03-expand-text">This redesign wasn't a client brief. I took a system I'd already shipped, waited until I had enough distance from it to see it clearly, and rebuilt it using AI tooling to handle the execution layer. That separation — AI running the mechanical work, me reviewing the output — kept me in the auditor's seat instead of the builder's seat. That's harder to maintain than it sounds when you're working alone.</p>
             <p class="s03-expand-text">The workflow was divided by what each tool does best. Claude handled planning, audit, and spec work — the analytical layer where structured thinking matters more than execution speed. Claude Code and Codex handled component generation and execution. Figma MCP kept design and implementation in sync throughout, eliminating the round-trips that normally fragment this kind of work.</p>
             <p class="s03-expand-text">Working this way created something genuinely hard to maintain in pure execution mode: critical distance. When the model handles the mechanical work, there's room to step back and audit decisions rather than just make them.</p>
 
@@ -534,7 +536,6 @@ import Footer from '../../components/Footer.astro';
 
         </div>
 
-        <p class="s04-summary">The system isn't finished. Storybook in progress, additional objects planned, and an interactive demo of the full system coming soon.</p>
 
       </section>
 
@@ -888,7 +889,7 @@ import Footer from '../../components/Footer.astro';
   /* ── Panel — description ─────────────────────────────────────── */
   .panel-description {
     font-family: var(--font-mono);
-    font-size: 0.9375rem; /* 11px */
+    font-size: 0.8125rem; /* 11px */
     font-weight: 400;
     letter-spacing: var(--letter-spacing-body);
     line-height: var(--line-height-body);
@@ -928,7 +929,7 @@ import Footer from '../../components/Footer.astro';
 
   .panel-meta-label {
     font-family: var(--font-mono);
-    font-size: 0.8125rem; /* 10px */
+    font-size: 0.625rem; /* 10px */
     font-weight: 400;
     letter-spacing: 0.10em;
     text-transform: uppercase;
@@ -937,7 +938,7 @@ import Footer from '../../components/Footer.astro';
 
   .panel-meta-value {
     font-family: var(--font-mono);
-    font-size: 0.9375rem; /* 11px */
+    font-size: 0.8125rem; /* 11px */
     font-weight: 400;
     letter-spacing: var(--letter-spacing-body);
     line-height: 1.5;
@@ -954,7 +955,7 @@ import Footer from '../../components/Footer.astro';
 
   .panel-info-label {
     font-family: var(--font-mono);
-    font-size: 0.8125rem; /* 10px */
+    font-size: 0.625rem; /* 10px */
     font-weight: 400;
     letter-spacing: 0.10em;
     text-transform: uppercase;
@@ -963,7 +964,7 @@ import Footer from '../../components/Footer.astro';
 
   .panel-info-body {
     font-family: var(--font-mono);
-    font-size: 0.9375rem; /* 11px */
+    font-size: 0.8125rem; /* 11px */
     font-weight: 400;
     letter-spacing: var(--letter-spacing-body);
     line-height: 1.6;
@@ -1025,7 +1026,7 @@ import Footer from '../../components/Footer.astro';
     position: relative;
     z-index: 1;
     font-family: 'DM Mono', monospace;
-    font-size: 13px;
+    font-size: 11px;
     letter-spacing: 0.10em;
     padding: 5px 12px;
     border-radius: 6px;
@@ -1121,7 +1122,7 @@ import Footer from '../../components/Footer.astro';
 
   .s00-card-body {
     font-family: var(--font-mono);
-    font-size: 0.9375rem; /* 13px */
+    font-size: 0.8125rem; /* 13px */
     font-weight: 400;
     letter-spacing: var(--letter-spacing-body);
     line-height: 1.7;
@@ -1282,7 +1283,7 @@ import Footer from '../../components/Footer.astro';
 
   .s01-frame-caption-body {
     font-family: var(--font-mono);
-    font-size: 0.9375rem; /* 11px */
+    font-size: 0.8125rem; /* 11px */
     font-weight: 400;
     letter-spacing: var(--letter-spacing-body);
     line-height: 1.6;
@@ -1306,7 +1307,7 @@ import Footer from '../../components/Footer.astro';
     position: relative;
     z-index: 1;
     font-family: 'DM Mono', monospace;
-    font-size: 13px;
+    font-size: 11px;
     letter-spacing: 0.10em;
     padding: 5px 12px;
     border-radius: 6px;
@@ -1345,7 +1346,7 @@ import Footer from '../../components/Footer.astro';
 
   .s01-summary-text {
     font-family: var(--font-mono);
-    font-size: 0.9375rem; /* 13px */
+    font-size: 0.8125rem; /* 13px */
     font-weight: 400;
     letter-spacing: var(--letter-spacing-body);
     line-height: 1.7;
@@ -1384,7 +1385,7 @@ import Footer from '../../components/Footer.astro';
 
   .s01-expand-text {
     font-family: var(--font-mono);
-    font-size: 0.9375rem; /* 11px */
+    font-size: 0.8125rem; /* 11px */
     font-weight: 400;
     letter-spacing: var(--letter-spacing-body);
     line-height: 1.6;
@@ -1478,7 +1479,7 @@ import Footer from '../../components/Footer.astro';
 
   .s02-frame-caption-body {
     font-family: var(--font-mono);
-    font-size: 0.9375rem;
+    font-size: 0.8125rem;
     font-weight: 400;
     letter-spacing: var(--letter-spacing-body);
     line-height: 1.6;
@@ -1502,7 +1503,7 @@ import Footer from '../../components/Footer.astro';
     position: relative;
     z-index: 1;
     font-family: 'DM Mono', monospace;
-    font-size: 13px;
+    font-size: 11px;
     letter-spacing: 0.10em;
     padding: 5px 12px;
     border-radius: 6px;
@@ -1540,7 +1541,7 @@ import Footer from '../../components/Footer.astro';
 
   .s02-summary-text {
     font-family: var(--font-mono);
-    font-size: 0.9375rem;
+    font-size: 0.8125rem;
     font-weight: 400;
     letter-spacing: var(--letter-spacing-body);
     line-height: 1.7;
@@ -1579,7 +1580,7 @@ import Footer from '../../components/Footer.astro';
 
   .s02-expand-text {
     font-family: var(--font-mono);
-    font-size: 0.9375rem;
+    font-size: 0.8125rem;
     font-weight: 400;
     letter-spacing: var(--letter-spacing-body);
     line-height: 1.6;
@@ -1642,7 +1643,7 @@ import Footer from '../../components/Footer.astro';
     position: relative;
     z-index: 1;
     font-family: 'DM Mono', monospace;
-    font-size: 13px;
+    font-size: 11px;
     letter-spacing: 0.10em;
     padding: 5px 12px;
     border-radius: 6px;
@@ -1701,7 +1702,7 @@ import Footer from '../../components/Footer.astro';
 
   .dt-state-label {
     font-family: var(--font-mono);
-    font-size: 0.8125rem;
+    font-size: 0.625rem;
     font-weight: 400;
     letter-spacing: 0.10em;
     text-transform: uppercase;
@@ -1761,7 +1762,7 @@ import Footer from '../../components/Footer.astro';
     display: flex;
     width: fit-content;
     align-items: center;
-    margin-left: auto;
+    margin-left: 0;
     margin-right: auto;
     margin-top: 12px;
   }
@@ -1770,7 +1771,7 @@ import Footer from '../../components/Footer.astro';
     position: relative;
     z-index: 1;
     font-family: 'DM Mono', monospace;
-    font-size: 13px;
+    font-size: 11px;
     letter-spacing: 0.10em;
     padding: 5px 12px;
     border-radius: 6px;
@@ -1852,7 +1853,7 @@ import Footer from '../../components/Footer.astro';
 
   .svf-summary-body {
     font-family: var(--font-mono);
-    font-size: 0.9375rem;
+    font-size: 0.8125rem;
     font-weight: 400;
     letter-spacing: var(--letter-spacing-body);
     line-height: 1.7;
@@ -1890,7 +1891,7 @@ import Footer from '../../components/Footer.astro';
 
   .svf-expand-text {
     font-family: var(--font-mono);
-    font-size: 0.9375rem;
+    font-size: 0.8125rem;
     font-weight: 400;
     letter-spacing: var(--letter-spacing-body);
     line-height: 1.6;
@@ -1943,7 +1944,7 @@ import Footer from '../../components/Footer.astro';
     padding: 0;
     margin: 0;
     font-family: var(--font-mono);
-    font-size: 0.9375rem; /* 13px */
+    font-size: 0.8125rem; /* 13px */
     font-weight: 400;
     letter-spacing: var(--letter-spacing-body);
     line-height: 1.7;
@@ -1959,7 +1960,7 @@ import Footer from '../../components/Footer.astro';
 
   .s03-tool-sep {
     font-family: var(--font-mono);
-    font-size: 0.9375rem; /* 13px */
+    font-size: 0.8125rem; /* 13px */
     color: var(--color-text-muted);
     display: flex;
     align-items: center;
@@ -1994,7 +1995,7 @@ import Footer from '../../components/Footer.astro';
 
   .s03-summary-body {
     font-family: var(--font-mono);
-    font-size: 0.9375rem; /* 13px */
+    font-size: 0.8125rem; /* 13px */
     font-weight: 400;
     letter-spacing: var(--letter-spacing-body);
     line-height: 1.7;
@@ -2033,7 +2034,7 @@ import Footer from '../../components/Footer.astro';
 
   .s03-expand-text {
     font-family: var(--font-mono);
-    font-size: 0.9375rem; /* 11px */
+    font-size: 0.8125rem; /* 11px */
     font-weight: 400;
     letter-spacing: var(--letter-spacing-body);
     line-height: 1.6;
@@ -2089,7 +2090,7 @@ import Footer from '../../components/Footer.astro';
 
   .s03-reflect-body {
     font-family: var(--font-mono);
-    font-size: 0.9375rem; /* 13px */
+    font-size: 0.8125rem; /* 13px */
     font-weight: 400;
     letter-spacing: var(--letter-spacing-body);
     line-height: 1.7;
@@ -2126,7 +2127,7 @@ import Footer from '../../components/Footer.astro';
 
   .s04-summary {
     font-family: var(--font-mono);
-    font-size: 0.9375rem; /* 13px */
+    font-size: 0.8125rem; /* 13px */
     font-weight: 400;
     letter-spacing: var(--letter-spacing-body);
     line-height: 1.7;
@@ -2176,7 +2177,7 @@ import Footer from '../../components/Footer.astro';
 
   .s04-card-body {
     font-family: var(--font-mono);
-    font-size: 0.9375rem; /* 13px */
+    font-size: 0.8125rem; /* 13px */
     font-weight: 400;
     letter-spacing: var(--letter-spacing-body);
     line-height: 1.7;

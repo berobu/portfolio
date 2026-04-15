@@ -13,9 +13,6 @@ const { showBack = false } = Astro.props;
       <span class="availability-dot"></span>
       <span class="availability-label">Available for work</span>
     </div>
-    {showBack && (
-      <a href="/" class="nav-link">← Work</a>
-    )}
   </div>
   <nav class="nav-links">
     <a href="#work" class="nav-link">Work</a>
@@ -23,6 +20,11 @@ const { showBack = false } = Astro.props;
     <a href="https://drive.google.com/file/d/1bo5pJuPYTJeJZCfqWL_R4NoEca0ZObL3/view?usp=sharing" class="nav-link" target="_blank" rel="noopener noreferrer">CV&nbsp;↗</a>
   </nav>
 </header>
+{showBack && (
+  <div class="nav-back-wrap">
+    <a href="/" class="nav-back">← Back</a>
+  </div>
+)}
 
 <style>
   .nav {
@@ -82,6 +84,27 @@ const { showBack = false } = Astro.props;
   }
 
   .nav-name:hover {
+    color: var(--color-accent);
+  }
+
+  .nav-back-wrap {
+    max-width: 1200px;
+    margin: -16px auto 0;
+    padding: 0 40px 12px;
+  }
+
+  .nav-back {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: var(--letter-spacing-nav);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 150ms ease;
+  }
+
+  .nav-back:hover {
     color: var(--color-accent);
   }
 
