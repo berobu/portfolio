@@ -1,6 +1,7 @@
 ---
 // Hero section — SPEC-design-v1 + SPEC-content-v1
 // Animation: staggered word reveal, ~600ms total, ease-out, one time
+import AsciiSequence from './AsciiSequence';
 
 // Headline split into two lines per spec ("breaks after 'interfaces'")
 const line1 = ['Clear,', 'considered', 'interfaces'];
@@ -12,40 +13,58 @@ const DURATION_MS = 350;
 ---
 
 <section class="hero">
-  <p class="eyebrow">Product Designer</p>
+  <div class="hero-content">
+    <p class="eyebrow">Product Designer</p>
 
-  <h1 class="headline" aria-label="Clear, considered interfaces for complex products.">
-    {line1.map((word, i) => (
-      <>
-        <span
-          class="word"
-          style={`animation: word-reveal ${DURATION_MS}ms ease-out ${i * STAGGER_MS}ms both;`}
-          aria-hidden="true"
-        >{word}</span>{i < line1.length - 1 ? ' ' : ''}
-      </>
-    ))}
-    <br />
-    {line2.map((word, i) => (
-      <>
-        <span
-          class="word"
-          style={`animation: word-reveal ${DURATION_MS}ms ease-out ${(line1.length + i) * STAGGER_MS}ms both;`}
-          aria-hidden="true"
-        >{word}</span>{i < line2.length - 1 ? ' ' : ''}
-      </>
-    ))}
-  </h1>
+    <h1 class="headline" aria-label="Clear, considered interfaces for complex products.">
+      {line1.map((word, i) => (
+        <>
+          <span
+            class="word"
+            style={`animation: word-reveal ${DURATION_MS}ms ease-out ${i * STAGGER_MS}ms both;`}
+            aria-hidden="true"
+          >{word}</span>{i < line1.length - 1 ? ' ' : ''}
+        </>
+      ))}
+      <br />
+      {line2.map((word, i) => (
+        <>
+          <span
+            class="word"
+            style={`animation: word-reveal ${DURATION_MS}ms ease-out ${(line1.length + i) * STAGGER_MS}ms both;`}
+            aria-hidden="true"
+          >{word}</span>{i < line2.length - 1 ? ' ' : ''}
+        </>
+      ))}
+    </h1>
 
-  <p class="subline">
-    I bring rigour to ambiguous briefs and stay in it until the thing actually ships.
-  </p>
+    <p class="subline">
+      I bring rigour to ambiguous briefs and stay in it until the thing actually ships.
+    </p>
+  </div>
+
+  <div class="animation-zone">
+    <AsciiSequence client:only="react" />
+  </div>
 </section>
 
 <style>
   .hero {
+    position: relative;
+    width: 100%;
+    min-height: 900px;
+    overflow: hidden;
+  }
+
+  .hero-content {
+    position: absolute;
+    bottom: 150px;
+    left: 0;
+    right: 0;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 168px 40px 168px;
+    padding: 0 40px;
+    z-index: 2;
   }
 
   .eyebrow {
@@ -55,7 +74,7 @@ const DURATION_MS = 350;
     letter-spacing: var(--letter-spacing-label);
     color: var(--color-accent);
     text-transform: uppercase;
-    margin: 0 0 24px;
+    margin: 0 0 8px;
   }
 
   .headline {
@@ -65,7 +84,7 @@ const DURATION_MS = 350;
     letter-spacing: var(--letter-spacing-display);
     line-height: var(--line-height-display);
     color: var(--color-text-primary);
-    margin: 0 0 32px;
+    margin: 0 0 16px;
   }
 
   .word {
@@ -80,12 +99,29 @@ const DURATION_MS = 350;
     line-height: var(--line-height-body);
     color: var(--color-text-secondary);
     margin: 0;
-    max-width: 520px;
+  }
+
+  .animation-zone {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 900px;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-end;
+    transform: translateX(-50px);
   }
 
   @media (max-width: 640px) {
-    .hero {
-      padding: 112px 20px 112px;
+    .hero-content {
+      padding: 0 20px;
+    }
+
+    .animation-zone {
+      opacity: 0.4;
     }
   }
 </style>
